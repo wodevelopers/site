@@ -1,0 +1,382 @@
+<html data-wf-domain="studio-cms.webflow.io" data-wf-page="57783d863dcedd7133bdcd2d" data-wf-site="56f98ec3c505ae330857c2fb" class="w-mod-js w-mod-touch w-mod-video w-mod-no-ios wf-oswald-n3-active wf-oswald-n4-active wf-oswald-n7-active wf-montserrat-n4-active wf-montserrat-n7-active wf-sourcesanspro-n4-active wf-sourcesanspro-n6-active wf-sourcesanspro-n7-active wf-sourcesanspro-n9-active wf-active w-mod-js w-mod-no-touch w-mod-video w-mod-no-ios">
+
+<head>
+    <meta charset="utf-8">
+    <title>Entre em contato</title>
+    <meta content="Entre em contato" property="og:title">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Weone Criação Digital" name="generator">
+    <link href="https://daks2k3a4ib2z.cloudfront.net/56f98ec3c505ae330857c2fb/css/studio-cms.webflow.43d7d9276.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:300,400,700%7CMontserrat:400,700%7CSource+Sans+Pro:regular,600,700,900">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:300,400,700%7CMontserrat:400,700%7CSource+Sans+Pro:regular,600,700,900">
+    <script type="text/javascript">
+        WebFont.load({
+            google: {
+                families: ["Oswald:300,400,700", "Montserrat:400,700", "Source Sans Pro:regular,600,700,900"]
+            }
+        });
+    </script>
+    <script src="https://daks2k3a4ib2z.cloudfront.net/0globals/modernizr-2.7.1.js" type="text/javascript"></script>
+    <link href="https://daks2k3a4ib2z.cloudfront.net/56f98ec3c505ae330857c2fb/571177b3bc757cad108c1f4b_32x32.png" rel="shortcut icon" type="image/x-icon">
+    <link href="https://daks2k3a4ib2z.cloudfront.net/56f98ec3c505ae330857c2fb/571177b768d86d005871bca2_256x256.png" rel="apple-touch-icon">
+</head>
+
+<body class="body light-blue">
+    <div class="short-contact-form w-hidden-medium w-hidden-small w-hidden-tiny" data-ix="display-none-on-load" style="transform: translateX(500px) translateY(0px) translateZ(0px); display: none;">
+        <div class="short-contact-form-header">
+            <a class="close-button w-inline-block" data-ix="hide-navbar-on-click" href="#"><img class="close-x" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/5702c0fc77f3f0e41603e5a8_Close-X.png" width="13"></a>
+            <div class="mini-title white">contact us</div>
+            <h4 class="heading-4 white">send us your message</h4></div>
+        <div class="short-contact-form-text">
+            <div class="w-form">
+                <form data-name="Short Contact Form" id="wf-form-Short-Contact-Form" name="wf-form-Short-Contact-Form">
+                    <div class="input-box">
+                        <label class="field-label" for="Name">Name</label>
+                        <input class="on-short-form text-field w-input" data-name="Name 4" id="Name" maxlength="256" name="name" placeholder="Enter your name..." required="required" type="text">
+                    </div>
+                    <div class="input-box">
+                        <label class="field-label" for="Email">Email Address</label>
+                        <input class="on-short-form text-field w-input" data-name="Email 7" id="Email" maxlength="256" name="email" placeholder="your@email.com" required="required" type="email">
+                    </div>
+                    <div class="input-box">
+                        <label class="field-label" for="Phone">phone</label>
+                        <input class="on-short-form text-field w-input" data-name="Phone" id="Phone" maxlength="256" name="Phone" placeholder="Your phone..." type="text">
+                    </div>
+                    <div class="input-box">
+                        <label class="field-label" for="Message-1">message</label>
+                        <textarea class="text-area w-input" data-name="Message" id="Message-1" maxlength="5000" name="Message" placeholder="Your message..." required="required"></textarea>
+                    </div>
+                    <input class="button long w-button" data-wait="Please wait..." type="submit" value="Send">
+                </form>
+                <div class="success-message w-form-done">
+                    <p class="mini paragraph">Thank you! Your submission has been received!</p>
+                </div>
+                <div class="error-message w-form-fail">
+                    <p class="mini paragraph">Oops! Something went wrong while submitting the form</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="go-up-bar">
+        <div class="go-up-wrapper">
+            <a class="go-up-button w-inline-block" data-ix="go-up-button-initial-appearance" href="#Top" style="display: none; transition: transform 0.5s ease 0s, opacity 0.5s ease 0s, transform 500ms, opacity 500ms; opacity: 0; transform: translateX(0px) translateY(-15px) translateZ(0px);"></a>
+        </div>
+    </div>
+    <div class="navbar-blue-fixed w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400" data-ix="display-none-on-load-navbar-blue" style="display: block; transition: transform 0.5s ease 0s, opacity 0.5s ease 0s, transform 500ms, opacity 500ms; opacity: 1; transform: translateX(0px) translateY(0px) translateZ(0px);">
+        <div class="w-container">
+            <a class="brand w-nav-brand" href="/old-home"><img src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/571b7dfff11f709b4cbe325d_Logo-White-Normal.png" width="133"></a>
+            <a class="blue form-button-on-navbar w-hidden-medium w-hidden-small w-hidden-tiny w-inline-block" data-ix="slide-left-navbar" href="#"></a>
+            <nav class="blue navmenu w-nav-menu" role="navigation"><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">layout 1</a><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/team-members" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">team</a><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/works" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">works</a><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/services" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">services</a><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/faq" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">f.a.q</a><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/blog" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">blog</a><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/contact-us" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">contact us</a></nav>
+            <div class="blue menu-button w-nav-button" data-ix="burger-menu-actions">
+                <div>
+                    <div class="burger-line-1 white"></div>
+                    <div class="burger-line-2 white"></div>
+                    <div class="burger-line-3 white"></div>
+                </div>
+            </div>
+        </div>
+        <div class="w-nav-overlay" data-wf-ignore=""></div>
+        <div class="w-nav-overlay" data-wf-ignore=""></div>
+    </div>
+    <div class="navbar-blue w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400" id="Top">
+        <div class="w-container">
+            <a class="brand w-nav-brand" data-ix="fade-out-body-on-click" href="/old-home"><img src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/571b7dfff11f709b4cbe325d_Logo-White-Normal.png" width="133"></a>
+            <a class="blue form-button-on-navbar w-hidden-medium w-hidden-small w-hidden-tiny w-inline-block" data-ix="slide-left-navbar" href="#"></a>
+            <nav class="blue navmenu w-nav-menu" role="navigation"><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">layout 1</a><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/team-members" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">team</a><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/works" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">Works</a><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/services" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">services</a><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/faq" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">f.a.q</a><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/blog" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">blog</a><a class="navlink w-nav-link white" data-ix="fade-out-body-on-click" href="/contact-us" style="transition: margin-bottom 0.3s ease 0s; max-width: 940px;">contact us</a></nav>
+            <div class="blue menu-button w-nav-button" data-ix="burger-menu-actions">
+                <div>
+                    <div class="burger-line-1 white"></div>
+                    <div class="burger-line-2 white"></div>
+                    <div class="burger-line-3 white"></div>
+                </div>
+            </div>
+        </div>
+        <div class="w-nav-overlay" data-wf-ignore=""></div>
+        <div class="w-nav-overlay" data-wf-ignore=""></div>
+    </div>
+    <div class="intro-section" data-ix="show-fixed-navbar-on-scroll-30" style="opacity: 1; transform: translateX(0px) translateY(0px) translateZ(0px); transition: opacity 0.5s ease 0s, transform 0.5s ease 0s, opacity 500ms, transform 500ms;">
+        <div class="content-wrapper w-container">
+            <div class="text-container">
+                <div class="mini-title">contact us</div>
+                <h2 class="heading-2"><span class="blue-text">get in</span>&nbsp;touch with us</h2>
+                <div class="underline"></div>
+                <div class="medium-and-centered paragraph-box">
+                    <p class="paragraph">Aenean tellus urna, vehicula quis quam vel, finibus sollicitudin quam maecenas mollis risus eu purus faucibus efficitur.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-us-bg" data-ix="slide-down-section-on-load" style="opacity: 1; transform: translateX(0px) translateY(0px) translateZ(0px); transition: opacity 0.5s ease 0s, transform 0.5s ease 0s, opacity 500ms, transform 500ms;">
+        <div class="content-wrapper w-container">
+            <div class="contact-form top-border w-clearfix">
+                <div class="left-column-contact-form">
+                    <h2 class="heading-2 white">Drop us<br>your Message</h2>
+                    <div class="white-line"></div>
+                    <div class="left-justified paragraph-box small">
+                        <p class="paragraph white">As our client you’ll be introduced to your personal Project Manager who will take care of your project needs.</p>
+                        <div class="mini-title white">portentus team</div>
+                    </div><img class="signature" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56fdcf6a2633ca567d16a46f_Signature%20(1).png" width="285"></div>
+                <div class="right-column-contact-form">
+                    <div class="form-wrapper w-form">
+                        <form class="form" data-name="Contact Form" id="wf-form-Contact-Form" name="wf-form-Contact-Form">
+                            <div class="input-box">
+                                <label class="field-label" for="Name-2">Name:</label>
+                                <input class="text-field w-input" data-name="Name 2" id="Name-2" maxlength="256" name="Name-2" placeholder="Your name..." required="required" type="text">
+                            </div>
+                            <div class="input-box">
+                                <label class="field-label" for="Email-2">Email&nbsp;</label>
+                                <input class="text-field w-input" data-name="Email 2" id="Email-2" maxlength="256" name="Email-2" placeholder="your@email.com" required="required" type="email">
+                            </div>
+                            <div class="input-box">
+                                <label class="field-label" for="email-2">subjet</label>
+                                <div class="subject-row w-row">
+                                    <div class="w-col w-col-4">
+                                        <div class="subject">
+                                            <div class="subject-box"><img class="subject-image" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56fec4f87a6e8a4d62af5f77_Browser%20(1).png" width="50">
+                                                <div class="subject-text">web design</div>
+                                            </div>
+                                            <div class="radio-button-field w-radio">
+                                                <input class="radio-button w-radio-input" data-name="Radio" id="Web Design" name="radio" type="radio" value="Web Design">
+                                                <label class="radio-button-field-label w-form-label" for="Web Design"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-col w-col-4">
+                                        <div class="subject">
+                                            <div class="subject-box"><img class="subject-image" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56fec5391eef062419834d1c_Cart%20(1).png" width="50">
+                                                <div class="subject-text">ecommerce</div>
+                                            </div>
+                                            <div class="radio-button-field w-radio">
+                                                <input class="radio-button w-radio-input" data-name="Radio" id="Ecommerce" name="radio" type="radio" value="Ecommerce">
+                                                <label class="radio-button-field-label w-form-label" for="Ecommerce">Radio</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-col w-col-4">
+                                        <div class="subject">
+                                            <div class="subject-box"><img class="subject-image" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/570053bc6d89fd540a95d839_Smile.png" width="50">
+                                                <div class="subject-text">just say hi!</div>
+                                            </div>
+                                            <div class="radio-button-field w-radio">
+                                                <input class="radio-button w-radio-input" data-name="Radio" id="Just Say Hi!" name="radio" type="radio" value="Just Say Hi!">
+                                                <label class="radio-button-field-label w-form-label" for="Just Say Hi!">Radio</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <label class="field-label" for="Message-3">message</label>
+                                <textarea class="text-area w-input" data-name="Message 2" id="Message-3" maxlength="5000" name="Message-2" placeholder="Your message..." required="required"></textarea>
+                            </div>
+                            <input class="button long w-button" data-wait="Please wait..." type="submit" value="Submit">
+                        </form>
+                        <div class="success-message w-form-done">
+                            <p class="mini paragraph">Thank you! Your submission has been received!</p>
+                        </div>
+                        <div class="error-message w-form-fail">
+                            <p class="mini paragraph">Oops! Something went wrong while submitting the form</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="notice-section">
+        <div class="content-wrapper w-container">
+            <div class="no-top-border text-container">
+                <div class="mini-title">need help?</div>
+                <div class="medium-and-centered paragraph-box">
+                    <p class="paragraph">Aenean tellus urna, vehicula quis quam vel, finibus sollicitudin quam maecenas mollis risus eu purus faucibus efficitur.</p>
+                </div>
+            </div>
+            <div class="row-contact-us w-row">
+                <div class="w-col w-col-4">
+                    <div class="feature-text-box rounded-border"><img class="support-icon" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/570d4c7b3b95506f56797fcf_Whatsapp.png" width="64">
+                        <div class="bottom-border mini-title">chat with us</div>
+                        <p class="paragraph">Etiam tristique, metus pretium rutrum elementum, risus tortor euismod urna.</p>
+                        <a class="link-block w-clearfix w-inline-block" data-ix="move-right-mini-arrow-on-h" href="tel:"><img class="mini-arrow" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56fb2c03cf591b312d55f093_Mini-Arrow.png" width="4">
+                            <div class="text-block-link">+52 123.456.789</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-col w-col-4">
+                    <div class="feature-text-box rounded-border"><img class="support-icon" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/570d4c28fb4e011d1cf81e28_Airplane.png" width="64">
+                        <div class="bottom-border mini-title">send us an email</div>
+                        <p class="paragraph">Etiam tristique, metus pretium rutrum elementum, risus tortor euismod urna.</p>
+                        <a class="link-block w-clearfix w-inline-block" data-ix="move-right-mini-arrow-on-h" href="mailto:"><img class="mini-arrow" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56fb2c03cf591b312d55f093_Mini-Arrow.png" width="4">
+                            <div class="text-block-link">email us</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-col w-col-4">
+                    <div class="feature-text-box rounded-border"><img class="support-icon" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/570d4aa7fb4e011d1cf805e0_Support-Guy.png" width="64">
+                        <div class="bottom-border mini-title">give us a call</div>
+                        <p class="paragraph">Etiam tristique, metus pretium rutrum elementum, risus tortor euismod urna.</p>
+                        <a class="link-block w-clearfix w-inline-block" data-ix="move-right-mini-arrow-on-h" href="tel:"><img class="mini-arrow" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56fb2c03cf591b312d55f093_Mini-Arrow.png" width="4">
+                            <div class="text-block-link">01.800.123.456</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-section">
+        <div class="footer">
+            <div class="content-wrapper w-container">
+                <div class="w-row">
+                    <div class="column-1 w-col w-col-4">
+                        <div class="footer-column w-clearfix">
+                            <div class="mini-title-box">
+                                <div class="gray mini-title">Company</div>
+                            </div>
+                            <h4 class="bottom-border heading-4"><span class="blue-text">about</span>&nbsp;crafted cms</h4>
+                            <p class="paragraph">As our client you’ll be introduced to your personal Project Manager who will take care of your project needs.</p>
+                            <div class="contact-details-box w-clearfix">
+                                <div class="more-details-icon on-footer"><img src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56fdc8e0d0da234d7d1a041e_Email-Icon.png" width="24"></div>
+                                <p class="contact-details paragraph">info@yoursite.com</p>
+                            </div>
+                            <div class="contact-details-box w-clearfix">
+                                <div class="more-details-icon on-footer"><img src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56fdc95dbca55e2519098884_Phone-Icon.png" width="24"></div>
+                                <div class="more-details-text-box">
+                                    <p class="contact-details paragraph">01.800.123.456</p>
+                                </div>
+                            </div>
+                            <div class="contact-details-box w-clearfix">
+                                <div class="more-details-icon on-footer"><img src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56fed00b2633ca567d18086e_Pin.png" width="24"></div>
+                                <div class="more-details-text-box">
+                                    <p class="contact-details paragraph">1230, 5th Avenue New York, 10029, USA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-2 side-border-lines w-col w-col-4">
+                        <div class="footer-column left-border">
+                            <div class="gray mini-title">latest post</div>
+                            <div class="mini-posts-container">
+                                <div class="w-dyn-list">
+                                    <div class="w-dyn-items">
+                                        <div class="w-dyn-item">
+                                            <div class="mini-post-preview">
+                                                <div class="w-row" data-ix="slide-up-plus-sign-on-hover">
+                                                    <div class="w-col w-col-6 w-col-small-6 w-col-stack">
+                                                        <a class="mini-image-thumbnail w-inline-block" data-ix="fade-out-body-on-click" style="background-image: url('https://daks2k3a4ib2z.cloudfront.net/56fc69cfa51ff06263af0286/570ec7be77879ffa17b853b1_A7725B3C2F%20(1).jpg');" href="/post/if-the-world-ended-today-what-kind-of-template-would-you-buy">
+                                                            <div class="fade-out-on-hover overlay"></div><img class="plus-sign w-hidden-medium w-hidden-small w-hidden-tiny" data-ix="plus-sign-initial-appearance" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/570d561c967d19d4522bf0de_Plus-Sign.png" width="17" style="opacity: 0; transform: translateX(0px) translateY(10px) translateZ(0px);"></a>
+                                                    </div>
+                                                    <div class="w-col w-col-6 w-col-small-6 w-col-stack">
+                                                        <div class="mini-post-preview-text-box"><a class="mini-title-link" href="/category/webflow">webflow</a>
+                                                            <div class="w-clearfix">
+                                                                <a class="post-title-link w-inline-block" data-ix="fade-out-body-on-click" href="/post/if-the-world-ended-today-what-kind-of-template-would-you-buy">
+                                                                    <div>If The World Ended Today What Kind Of Template Would You Buy?</div>
+                                                                </a>
+                                                            </div>
+                                                            <a class="block link-block w-clearfix w-hidden-main w-hidden-medium w-inline-block" href="/post/if-the-world-ended-today-what-kind-of-template-would-you-buy"><img class="mini-arrow" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56fb2c03cf591b312d55f093_Mini-Arrow.png" width="4">
+                                                                <div class="text-block-link">read more</div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-dyn-item">
+                                            <div class="mini-post-preview">
+                                                <div class="w-row" data-ix="slide-up-plus-sign-on-hover">
+                                                    <div class="w-col w-col-6 w-col-small-6 w-col-stack">
+                                                        <a class="mini-image-thumbnail w-inline-block" data-ix="fade-out-body-on-click" style="background-image: url('https://daks2k3a4ib2z.cloudfront.net/56fc69cfa51ff06263af0286/570fbd79614d5efa329b10d7_photo-1427751840561-9852520f8ce8.jpg');" href="/post/10-things-you-need-to-consider-when-buying-a-template-on-webflow">
+                                                            <div class="fade-out-on-hover overlay"></div><img class="plus-sign w-hidden-medium w-hidden-small w-hidden-tiny" data-ix="plus-sign-initial-appearance" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/570d561c967d19d4522bf0de_Plus-Sign.png" width="17" style="opacity: 0; transform: translateX(0px) translateY(10px) translateZ(0px);"></a>
+                                                    </div>
+                                                    <div class="w-col w-col-6 w-col-small-6 w-col-stack">
+                                                        <div class="mini-post-preview-text-box"><a class="mini-title-link" href="/category/uix-design">uix design</a>
+                                                            <div class="w-clearfix">
+                                                                <a class="post-title-link w-inline-block" data-ix="fade-out-body-on-click" href="/post/10-things-you-need-to-consider-when-buying-a-template-on-webflow">
+                                                                    <div>10 Things You Need To Consider When Buying A Template on Webflow </div>
+                                                                </a>
+                                                            </div>
+                                                            <a class="block link-block w-clearfix w-hidden-main w-hidden-medium w-inline-block" href="/post/10-things-you-need-to-consider-when-buying-a-template-on-webflow"><img class="mini-arrow" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56fb2c03cf591b312d55f093_Mini-Arrow.png" width="4">
+                                                                <div class="text-block-link">read more</div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-dyn-item">
+                                            <div class="mini-post-preview">
+                                                <div class="w-row" data-ix="slide-up-plus-sign-on-hover">
+                                                    <div class="w-col w-col-6 w-col-small-6 w-col-stack">
+                                                        <a class="mini-image-thumbnail w-inline-block" data-ix="fade-out-body-on-click" style="background-image: url('https://daks2k3a4ib2z.cloudfront.net/56fc69cfa51ff06263af0286/570fbdfbe7488f24315907c9_photo-1448932223592-d1fc686e76ea%20(1).jpg');" href="/post/successful-story-how-we-help-google-to-launch-its-new-project">
+                                                            <div class="fade-out-on-hover overlay"></div><img class="plus-sign w-hidden-medium w-hidden-small w-hidden-tiny" data-ix="plus-sign-initial-appearance" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/570d561c967d19d4522bf0de_Plus-Sign.png" width="17" style="opacity: 0; transform: translateX(0px) translateY(10px) translateZ(0px);"></a>
+                                                    </div>
+                                                    <div class="w-col w-col-6 w-col-small-6 w-col-stack">
+                                                        <div class="mini-post-preview-text-box"><a class="mini-title-link" href="/category/illustration">illustration</a>
+                                                            <div class="w-clearfix">
+                                                                <a class="post-title-link w-inline-block" data-ix="fade-out-body-on-click" href="/post/successful-story-how-we-help-google-to-launch-its-new-project">
+                                                                    <div>Successful Story: How We Help Google To Launch Its New Project</div>
+                                                                </a>
+                                                            </div>
+                                                            <a class="block link-block w-clearfix w-hidden-main w-hidden-medium w-inline-block" href="/post/successful-story-how-we-help-google-to-launch-its-new-project"><img class="mini-arrow" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56fb2c03cf591b312d55f093_Mini-Arrow.png" width="4">
+                                                                <div class="text-block-link">read more</div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-3 subscribe w-col w-col-4">
+                        <div class="footer-column left-border">
+                            <div class="mini-title-box">
+                                <div class="gray mini-title">susbscribe</div>
+                            </div>
+                            <p class="mini paragraph">Join our mailing list for updates</p>
+                            <div class="form-wrapper on-footer w-form">
+                                <form class="footer-form w-clearfix" data-name="Newsletter Form" id="wf-form-Newsletter-Form" name="wf-form-Newsletter-Form">
+                                    <input class="rounded text-field w-input" data-name="Email 3" id="Email-3" maxlength="256" name="Email-3" placeholder="you@email.com" required="required" type="email">
+                                    <input class="button on-newsletter-form w-button" data-wait="Wait" type="submit" value="Submit" wait="Wait">
+                                </form>
+                                <div class="on-footer success-message w-form-done">
+                                    <p class="mini paragraph">Thank you! Your submission has been received!</p>
+                                </div>
+                                <div class="error-message w-form-fail">
+                                    <p class="mini paragraph">Oops! Something went wrong while submitting the form</p>
+                                </div>
+                            </div>
+                            <div class="less-bottom-border mini-title-box">
+                                <div class="gray mini-title">follow us</div>
+                            </div>
+                            <p class="mini paragraph">Follow us in our social networks</p>
+                            <div class="social-icons w-clearfix">
+                                <a class="social-icon w-inline-block" href="#"><img class="social-icon-fill" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56ff03bac49078072a5aa624_Facebook-Fill.png"></a>
+                                <a class="social-icon twitter w-inline-block" href="#"><img class="social-icon-fill" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56ff050bae286545739480b1_Twitter-Fill.png"></a>
+                                <a class="google-plus social-icon w-inline-block" href="#"><img class="social-icon-fill" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56ff05346d89fd540a94a2c5_GPlus-Fill.png"></a>
+                                <a class="pinterest social-icon w-inline-block" href="#"><img class="social-icon-fill" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56ff0557ae286545739480c8_Pinterest-Fill.png"></a>
+                                <a class="linkedin social-icon w-inline-block" href="#"><img class="social-icon-fill" src="http://uploads.webflow.com/56f98ec3c505ae330857c2fb/56ff05d76d89fd540a94a3eb_Linkedin-Fill.png"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="credits-section">
+            <div class="content-wrapper w-container">
+                <div>
+                    <div class="mini-title">site version 1.4 I made by <a target="_blank" href="https://webflow.com/templates/designers/pablo-ramos">portentus</a> I image <a href="/licensing">licenses</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+    <script src="https://daks2k3a4ib2z.cloudfront.net/56f98ec3c505ae330857c2fb/js/webflow.f7f540d4b.js" type="text/javascript"></script>
+    <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+
+    <a href="http://webflow.com?utm_campaign=brandjs" style="color: rgb(170, 173, 176); text-decoration: none;">
+        <div style="position: fixed; bottom: 0px; right: 0px; border-top-left-radius: 5px; padding: 8px 12px 5px 15px; font-family: Arial; font-size: 10px; text-transform: uppercase; opacity: 1; transition: opacity 0.5s ease-in-out; background-color: rgb(43, 50, 57);">Built with<img src="https://daks2k3a4ib2z.cloudfront.net/54153e6a3d25f2755b1f14ed/5445a4b1944ecdaa4df86d3e_subdomain-brand.svg" style="opacity: 0.9; width: 57px; vertical-align: middle; padding-left: 4px; padding-bottom: 3px;"></div>
+    </a>
+</body>
+
+</html>
