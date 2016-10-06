@@ -1,0 +1,141 @@
+-- Function: sft_site_cloud.function_trigger_file()
+
+-- DROP FUNCTION sft_site_cloud.function_trigger_file();
+
+CREATE OR REPLACE FUNCTION sft_site_cloud.function_trigger_file()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+	vSchema varchar;
+	vTabFilha varchar;
+	vTabFilhaEsq varchar;
+	vSql varchar;
+	icodempresa integer;
+	iTotal integer;	
+BEGIN
+	
+	vSchema := 'sft_site_cloud';
+	icodempresa := NEW.id_cliente;
+	vTabFilha := 'file'||'_'||to_char(NEW.id_cliente,'FM099999MI');
+	vTabFilhaEsq := vSchema||'.'|| vTabFilha;
+	  
+	SELECT COUNT(tablename) INTO iTotal FROM pg_tables WHERE tablename = vTabFilha ;
+	IF iTotal = 0 THEN 
+		vSql := 'CREATE TABLE ' || vTabFilhaEsq || '() INHERITS(sft_site_cloud.file)';
+		EXECUTE vSql;
+		vSql := 'ALTER TABLE ' || vTabFilhaEsq || ' ADD CHECK (id_cliente = ' || '''' || icodempresa || '''' || ')';
+		EXECUTE vSql;
+		vSql := 'CREATE INDEX IDX_id_empresa_' || vTabFilha || ' on ' || vTabFilhaEsq || ' (id_cliente)';		
+		EXECUTE vSql;
+		vSql := 'ALTER TABLE ' || vTabFilhaEsq || ' ADD CONSTRAINT pk_'|| vTabFilha || ' PRIMARY KEY(id_file)';
+		EXECUTE vSql;
+		vSql := 'ALTER TABLE ' || vTabFilhaEsq || ' ADD CONSTRAINT uk_file_chnfe_'|| vTabFilha || ' UNIQUE(chnfe) ' ;
+		EXECUTE vSql;
+		vSql := 'ALTER TABLE ' || vTabFilhaEsq || ' OWNER TO cuca_site; ' ;
+		EXECUTE vSql;
+	END IF;
+
+
+
+        vSql := ' INSERT INTO ' || vTabFilhaEsq || '( xml, nnf, cnpj_cpf_cliente, cnpj_cpf, xnome, xnome_cliente, chnfe, total_nfe, dhemi, status, document, classification, type, id_cliente, code_localization) 
+		VALUES ( ' || '''' || NEW.xml || '''' || ', ' || 
+			'''' || NEW.nnf || '''' || ', ' ||
+			'''' || NEW.cnpj_cpf_cliente || '''' || ', ' ||
+			'''' || NEW.cnpj_cpf || '''' || ', ' ||
+			'''' || NEW.xnome || '''' || ', ' ||
+			'''' || NEW.xnome_cliente || '''' || ', ' ||
+			'''' || NEW.chnfe || '''' || ', ' ||
+			NEW.total_nfe ||  ', ' ||
+			'''' || NEW.dhemi || '''' || ', ' ||
+			NEW.status ||  ', ' ||
+			NEW.document ||  ', ' ||
+			NEW.classification ||  ', ' ||
+			NEW.type ||  ', ' ||
+			NEW.id_cliente ||  ', ' ||  
+			NEW.code_localization ||  ')'; 
+        EXECUTE vSql;
+		
+	RETURN NULL;
+        
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sft_site_cloud.function_trigger_file()
+  OWNER TO "CucaPost";
+
+
+
+-- Function: sft_site_cloud.function_nfe(xml, bigint, character varying)
+
+-- DROP FUNCTION sft_site_cloud.function_nfe(xml, bigint, character varying);
+
+CREATE OR REPLACE FUNCTION sft_site_cloud.function_nfe(
+    xml,
+    bigint,
+    character varying)
+  RETURNS void AS
+$BODY$
+DECLARE
+	vXML xml;
+	vEmitCNPJCPF varchar;
+	vDestCNPJCPF varchar;
+	vCFOP integer;
+	
+	vNNF varchar;
+	vEmitxNome varchar;
+	vDestxNome varchar;
+	vCHNFE varchar;
+	vTotalNFE numeric;
+	vDHEMI date;
+
+	vNF boolean;
+	vNFS boolean;
+
+	vTotal integer;
+	vCount integer;
+
+	vStatus varchar;
+	
+	vClassification smallint;
+	vType smallint;
+
+BEGIN
+	
+	vCFOP := substr((xpath('/n:nfeProc/n:NFe/n:infNFe/n:det/n:prod/n:CFOP/text()', $1, '{{n,http://www.portalfiscal.inf.br/nfe}}'))[1]::text, 1, 1)::text::integer;
+	vNNF := (xpath('/n:nfeProc/n:NFe/n:infNFe/n:ide/n:nNF/text()', $1, '{{n, http://www.portalfiscal.inf.br/nfe}}'))[1]::text;
+	vEmitCNPJCPF := COALESCE((xpath('/n:nfeProc/n:NFe/n:infNFe/n:emit/n:CNPJ/text()', $1, '{{n, http://www.portalfiscal.inf.br/nfe}}'))[1]::text, (xpath('/n:nfeProc/n:NFe/n:infNFe/n:emit/n:CPF/text()', $1, '{{n, http://www.portalfiscal.inf.br/nfe}}'))[1]::text);
+	vDestCNPJCPF := COALESCE((xpath('/n:nfeProc/n:NFe/n:infNFe/n:dest/n:CNPJ/text()', $1, '{{n, http://www.portalfiscal.inf.br/nfe}}'))[1]::text, (xpath('/n:nfeProc/n:NFe/n:infNFe/n:dest/n:CPF/text()', $1, '{{n, http://www.portalfiscal.inf.br/nfe}}'))[1]::text);
+	vEmitxNome := (xpath('/n:nfeProc/n:NFe/n:infNFe/n:emit/n:xNome/text()', $1, '{{n, http://www.portalfiscal.inf.br/nfe}}'))[1]::text;
+	vDestxNome := (xpath('/n:nfeProc/n:NFe/n:infNFe/n:dest/n:xNome/text()', $1, '{{n, http://www.portalfiscal.inf.br/nfe}}'))[1]::text;
+	vCHNFE := (xpath('/n:nfeProc/n:protNFe/n:infProt/n:chNFe/text()', $1, '{{n, http://www.portalfiscal.inf.br/nfe}}'))[1]::text;
+	vTotalNFE := (xpath('/n:nfeProc/n:NFe/n:infNFe/n:total/n:ICMSTot/n:vNF/text()', $1, '{{n, http://www.portalfiscal.inf.br/nfe}}'))[1]::text::numeric(15, 2);			
+	--COALESCE(3.10 , 2.00)-Vs do xml
+	vDHEMI := COALESCE(substr((xpath('/n:nfeProc/n:NFe/n:infNFe/n:ide/n:dhEmi/text()', $1, '{{n, http://www.portalfiscal.inf.br/nfe}}'))[1]::text, 0, 11)::date,substr((xpath('/n:nfeProc/n:NFe/n:infNFe/n:ide/n:dEmi/text()', $1, '{{n, http://www.portalfiscal.inf.br/nfe}}'))[1]::text, 0, 11)::date);		
+	vType := (xpath('/n:nfeProc/n:NFe/n:infNFe/n:ide/n:tpNF/text()', $1, '{{n, http://www.portalfiscal.inf.br/nfe}}'))[1]::text;
+	
+	IF ($3 = vEmitCNPJCPF) or (vEmitCNPJCPF in(select doc from sft_site_cloud.aditional_cnpj_cpf where id_cliente = $2)) THEN -- EMITIDOS
+
+		INSERT INTO 
+			sft_site_cloud.file(xml, id_cliente, xnome, xnome_cliente, cnpj_cpf_cliente, cnpj_cpf, chnfe, nnf, total_nfe, dhemi, document, classification, type, status, code_localization)
+		VALUES 
+			($1, $2, vDestxNome, vEmitxNome, vEmitCNPJCPF, vDestCNPJCPF, vCHNFE, vNNF, vTotalNFE, vDHEMI, 0, 1, vType, 0, 0);
+					
+	ELSIF ($3 = vDestCNPJCPF) or (vDestCNPJCPF in(select doc from sft_site_cloud.aditional_cnpj_cpf where id_cliente = $2)) THEN -- RECEBIDOS
+	
+		INSERT INTO 
+			sft_site_cloud.file(xml, id_cliente, xnome, xnome_cliente, cnpj_cpf_cliente, cnpj_cpf, chnfe, nnf, total_nfe, dhemi, document, classification, type, status, code_localization)
+		VALUES 
+			($1, $2, vEmitxNome, vDestxNome, vDestCNPJCPF, vEmitCNPJCPF, vCHNFE, vNNF, vTotalNFE, vDHEMI, 0, 0, vType, 0, 0);				
+
+	ELSE
+		RAISE EXCEPTION '0003';
+	END IF;
+
+	
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sft_site_cloud.function_nfe(xml, bigint, character varying)
+  OWNER TO "CucaPost";
