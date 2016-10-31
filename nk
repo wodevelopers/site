@@ -2,3 +2,5 @@
 - patient.information.default
 - patient.information
 - add column patient (address, e-mail e phone)
+- add column dentist (address, e-mail e phone)
+- table_category organization-patient
