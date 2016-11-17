@@ -1,0 +1,48 @@
+CREATE TABLE contact
+(
+  id_contact bigserial NOT NULL,
+  fullname character varying(100),
+  phone character varying(100),
+  email character varying(100),
+  message text,
+  datetime_register timestamp with time zone DEFAULT now(),
+  CONSTRAINT pk_contact PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+
+public function sendAction() {
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+        
+        Zend_Loader::loadClass("Contact");
+        $model = new Contact();
+        
+        $fullname = $this->_request->getParam("fullname");
+        $phone = $this->_request->getParam("phone");
+        $email = $this->_request->getParam("email");
+        $message = $this->_request->getParam("message");               
+        
+        $result = $model->insertTable($fullname, $phone, $email, $message);
+        
+        echo Zend_Json::encode($result);
+}
+
+class Contact extends Zend_Db_Table {
+
+  protected $_name = 'contact';
+  protected $_primary = 'id_contact';
+  protected $_rowClass = 'Contact';
+
+  public function insertTable($fullname, $phone, $email, $message) {
+      $data = array (
+          fullname => utf8_encode($fullname),
+          phone => utf8_encode($phone),
+          email => utf8_encode($email),
+          message => utf8_encode($message)
+      );
+      return $this->insert($data);
+  }
+  
+}
