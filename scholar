@@ -19,3 +19,28 @@ fullname
 
 id_student
 fullname
+
+
+----------------------------------
+
+
+<div class="ui search">
+  <div class="ui left icon input">
+    <input class="prompt" type="text" placeholder="Search GitHub">
+    <i class="github icon"></i>
+  </div>
+</div>
+
+$('.ui.search')
+  .search({
+    apiSettings: {
+      url: '//api.github.com/search/repositories?q={query}'
+    },
+    fields: {
+      results : 'items',
+      title   : 'name',
+      url     : 'html_url'
+    },
+    minCharacters : 3
+  })
+;
