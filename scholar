@@ -1,0 +1,21 @@
+id_user
+nickname
+login
+password
+level_system {0: normal, 1: administrator}
+
+-----------------------------------
+
+id_registration
+id_user
+id_organization
+
+-----------------------------------
+
+id_organization
+fullname
+
+-----------------------------------
+
+id_student
+fullname
