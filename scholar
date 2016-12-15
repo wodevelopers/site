@@ -44,3 +44,140 @@ $('.ui.search')
     minCharacters : 3
   })
 ;
+
+
+
+    $('body').prepend(
+        '<form class="ui form form-teste">' +
+        '<div class="required field">' +
+        '<label>Dropdown</label>' +
+        '<select class="ui dropdown" name="dropdown_first" id="dropdown_first">' +
+        '<option value="">Select</option>' +
+        '<option value="0">Choice 1</option>' +
+        '<option value="1">Choice 2</option>' +
+        '</select>' +
+        '</div>' +
+        '<div class="required field">' +
+        '<label>Dropdown</label>' +
+        '<select class="ui dropdown" name="dropdown_second" id="dropdown_second">' +
+        '<option value="">Select</option>' +
+        '<option value="0">Choice 1</option>' +
+        '<option value="1">Choice 2</option>' +
+        '</select>' +
+        '</div>' +
+        '<div class="field" style="display: none">' +
+        '<label>Justify</label>' +
+        '<input type="text" name="justify_first" id="justify_first">' +
+        '</select>' +
+        '</div>' +
+        '<div class="field" style="display: none">' +
+        '<label>Justify</label>' +
+        '<input type="text" name="justify_second" id="justify_second">' +
+        '</select>' +
+        '</div>' +
+        '<div class="ui submit button">Submit</div>' +
+        '<div class="ui error message"></div>' +
+        '</form>'
+    );
+
+
+    $('#dropdown_first').dropdown({
+        onChange: function(value, text, $selectedItem) {
+            switch (value) {
+                case 0:
+                    $('#justify_first').closest('.field').toggle();
+                    break;
+                default:
+                    $('#justify_first').closest('.field').toggle();
+                    break;
+            }
+        }
+    });
+    
+    $('#dropdown_second').dropdown({
+        onChange: function(value, text, $selectedItem) {
+            switch (value) {
+                case 0:
+                    $('#justify_second').closest('.field').toggle();
+                    break;
+                default:
+                    $('#justify_second').closest('.field').toggle();
+                    break;
+            }
+        }
+    });
+
+    $(document).on('submit', '.form-teste', function () {
+        return false;
+    });
+
+    $.fn.form.settings.rules.checkOtherFirst = function (value) {
+        switch (parseInt($('#dropdown_first').dropdown('get value'))) {
+            case 0:
+                return false;
+                break;
+            default:
+                return true;
+                break;
+        }
+    };
+
+    $.fn.form.settings.rules.checkOtherSecond = function (value) {
+        switch (parseInt($('#dropdown_second').dropdown('get value'))) {
+            case 0:
+                return false;
+                break;
+            default:
+                return true;
+                break;
+        }
+    };
+
+    $('.form-teste').form({
+        inline: true,
+        fields: {
+            dropdown_first: {
+                identifier: 'dropdown_first',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Por favor selecione um opção'
+                    }
+                ]
+            },
+            dropdown_second: {
+                identifier: 'dropdown_second',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Por favor selecione um opção'
+                    }
+                ]
+            },
+            justify_first: {
+                identifier: 'justify_first',
+                rules: [
+                    {
+                        type: 'checkOtherFirst',
+                        prompt: 'Other'
+                    }
+                ]
+            },
+            justify_second: {
+                identifier: 'justify_second',
+                rules: [
+                    {
+                        type: 'checkOtherSecond',
+                        prompt: 'Other'
+                    }
+                ]
+            }
+        },
+        onSuccess: onFormTeste
+    });
+
+    function onFormTeste() {
+
+        alert('success');
+        
+    }
