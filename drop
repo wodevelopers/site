@@ -1,0 +1,519 @@
+<div class="ui very padded secondary basic segment">
+
+    <div class="ui equal width grid container">
+        <div class="column">
+            <div class="ui secondary menu">
+                <a href="<?php echo $this->baseUrl('patient/screening?s=' . $_GET['s']) ?>" class="item">Screening</a>
+                <a href="<?php echo $this->baseUrl('patient/treatment?s=' . $_GET['s']) ?>" class="item">Plano de tratamento</a>
+                <a href="<?php echo $this->baseUrl('patient/quiz?s=' . $_GET['s']) ?>" class="active item">Questionário</a>
+                <a href="<?php echo $this->baseUrl('patient/radiograph?s=' . $_GET['s']) ?>" class="item">Radiografia</a>
+                <a href="<?php echo $this->baseUrl('patient/calendar?s=' . $_GET['s']) ?>" class="item">Agendamento</a>
+            </div>
+            <div class="ui segment items">
+                <div class="item">
+                    <div class="ui tiny image">
+                        <img src="http://semantic-ui.com/images/wireframe/image.png">
+                    </div>
+                    <div class="middle aligned content">
+                        <a class="header f-n">...</a>
+                        <div class="meta">
+                            <span class="cinema">...</span>
+                        </div>
+                        <div class="description">
+                            <p></p>
+                        </div>
+                        <div class="extra">
+                            <div class="ui tiny icon button g"><i class="icon"></i></div>
+                            <div class="ui tiny icon button a">...</div>
+                            <div class="ui tiny icon button t">...</div>
+                            <div class="ui tiny button button-information">Editar Informações</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui top attached tabular menu menu-quiz">
+                <div class="item">Sócio / Demográfico</div>
+                <div class="item">Saúde</div>
+                <div class="item">Álcool</div>
+                <div class="active item">Tabaco</div>
+            </div>
+            <div class="ui botton attached segment">
+
+                <div class="header">
+                    <label>GLOBAL TOBACCO SURVEILLANCE SYSTEM - WHO</label>
+                    <label>"http://desafiosatuais.blogspot.com.br/2006/01/cage-audit.html"</label>
+                    <p>UTILIZAR AS TRES PRIMEIRAS CASO A SEVERIDADE FOR ALTA LIBERAR AS DEMAIS</p>
+                </div>
+                <form class="ui form form-quiz-tobacco">
+                    <div class="required field">
+                        <label>Q1. Consumo Atual de Tabaco Fumado</label>
+                        <label>Atualmente, você fuma tabaco diariamente, menos que diariamente, ou não fuma?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">DIARIAMENTE o 1 > FINALIZAR SEÇÃO</div>
+                                <div class="item" data-value="2">MENOS QUE DIARIAMENTE o 2 > PERGUNTAR Q2a</div>
+                                <div class="item" data-value="3">NÃO FUMA o 3 > PERGUNTAR Q2b</div>
+                                <div class="item" data-value="4">NÃO SABE o 7 > FINALIZAR SEÇÃO</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="required field">
+                        <label>Q2a. Situação Passada sobre o Consumo Diário de Tabaco Fumado No passado, você fumou tabaco diariamente?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1 > FINALIZAR SEÇÃO</div>
+                                <div class="item" data-value="2">NÃO o 2 > FINALIZAR SEÇÃO</div>
+                                <div class="item" data-value="3">NÃO SABE o 7 > FINALIZAR SEÇÃO</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="required field">
+                        <label>Q2b. Situação Passada sobre o Consumo de Tabaco Fumado No passado, você fumou tabaco diariamente, menos que diariamente, ou não fumou? ENTREVISTADOR: SE O ENTREVISTADO RESPONDER AMBOS, “DIARIAMENTE” E “MENOS QUE DIARIAMENTE”, NO PASSADO, ASSINALE “DIARIAMENTE”.</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">DIARIAMENTE o 1</div>
+                                <div class="item" data-value="2">MENOS QUE DIARIAMENTE o 2</div>
+                                <div class="item" data-value="3">NÃO FUMOU o 3</div>
+                                <div class="item" data-value="4">NÃO SABE o 7</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="required field">
+                        <label>Q3. Número de Produtos de Tabaco Fumados por Dia
+                            Em média, quantos dos seguintes produtos você atualmente fuma por dia/semana?
+                            Diga-me, também se fuma o produto, mas não todos os dias/semanas.
+                            ENTREVISTADOR: SE O ENTREVISTADO RELATAR FUMAR O PRODUTO, MAS NÃO
+                            TODOS OS DIAS/SEMANAS), REGISTRE 888</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">Cigarros industrializados? POR DIA/SEMANA</div>
+                                <div class="item" data-value="2">Cigarros enrolados à mão? POR DIA/SEMANA</div>
+                                <div class="item" data-value="3">Kreteks? POR DIA/SEMANA</div>
+                                <div class="item" data-value="4">Cachimbos (considere cachimbos cheios)? POR DIA/SEMANA</div>
+                                <div class="item" data-value="5">Charutos ou cigarrilha? POR DIA/SEMANA</div>
+                                <div class="item" data-value="6">Número de sessões de cachimbos d’água/narguilé? POR DIA/SEMANA</div>
+                                <div class="item" data-value="7">Outros? POR DIA/SEMANA</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="required field">
+                        <label>Q4. Consumo Atual de Tabaco sem Fumaça
+                            Atualmente, você usa algum produto de tabaco sem fumaça diariamente, menos
+                            que diariamente, ou não usa?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">DIARIAMENTE o 1 > FINALIZAR SEÇÃO</div>
+                                <div class="item" data-value="2">MENOS QUE DIARIAMENTE o 2 >PERGUNTAR Q5a</div>
+                                <div class="item" data-value="3">NÃO USA o 3 > PERGUNTAR Q5b</div>
+                                <div class="item" data-value="4">NÃO SABE o 7 > FINALIZAR SEÇÃO</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="required field">
+                        <label>Q5a. Situação passada sobre o consumo diário de tabaco sem fumaça
+                            No passado, você usou diariamente produtos de tabaco sem fumaça ?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1 > FINALIZAR SEÇÃO</div>
+                                <div class="item" data-value="2">NÃO o 2 > FINALIZAR SEÇÃO</div>
+                                <div class="item" data-value="3">NÃO SABE o 7 > FINALIZAR SEÇÃO</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="required field">
+                        <label>Q5b. Situação passada sobre o consumo de tabaco sem fumaça
+                            No passado, você usou produtos de tabaco sem fumaça diariamente, menos que
+                            diariamente ou não usou?
+                            ENTREVISTADOR: SE O ENTREVISTADO RESPONDER AMBOS, “DIARIAMENTE” E
+                            “MENOS QUE DIARIMENTE”, NO PASSADO, ASSINALE “DIARIAMENTE”</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">DIARIAMENTE o 1</div>
+                                <div class="item" data-value="2">MENOS QUE DIARIAMENTE o 2</div>
+                                <div class="item" data-value="3">NÃO USOU o 3</div>
+                                <div class="item" data-value="4">NÃO SABE o 7</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="required field">
+                        <label>Q6. Frequência do Consumo de Tabaco em Casa
+                            Com que frequência alguém fuma dentro da sua casa? Você diria diariamente,
+                            semanalmente, mensalmente, menos que mensalmente, ou nunca?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">DIARIAMENTE o 1</div>
+                                <div class="item" data-value="2">SEMANALMENTE o 2</div>
+                                <div class="item" data-value="3">MENSALMENTE o 3</div>
+                                <div class="item" data-value="4">MENOS QUE MENSALMENTE o 4</div>
+                                <div class="item" data-value="5">NUNCA o 5</div>
+                                <div class="item" data-value="6">NÃO SABE o 4</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="required field">
+                        <label>Q7. Local de Trabalho Atual Atualmente, você trabalha fora de casa?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1 > PERGUNTAR Q8</div>
+                                <div class="item" data-value="2">NÃO/NÃO TRABALHA o 2 > FINALIZAR SEÇÃO</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="required field">
+                        <label>Q8. Trabalho Atual em Ambiente Fechado ou Aberto Você, geralmente, trabalha em ambiente fechado ou aberto?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">FECHADO o 1 > PERGUNTAR Q9</div>
+                                <div class="item" data-value="2">ABERTO o 2 > FINALIZAR SEÇÃO</div>
+                                <div class="item" data-value="3">AMBOS o 3 > PERGUNTAR Q9</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="required field">
+                        <label>Q9. Consumo de Tabaco no Local de Trabalho Durante os últimos 30 dias, alguém fumou em algum ambiente fechado onde você trabalha?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1</div>
+                                <div class="item" data-value="2">NÃO o 2</div>
+                                <div class="item" data-value="3">NÃO SABE o 7</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="required field">
+                        <label>Q10. Tentativa para Deixar de Fumar Durante os últimos 12 meses, você tentou parar de fumar?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1</div>
+                                <div class="item" data-value="2">NÃO o 2</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="required field">
+                        <label>Q11. Consulta a um Médico/Profissional de Saúde Nós últimos 12 meses, você consultou um médico ou outro profissional da saúde?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1</div>
+                                <div class="item" data-value="2">NÃO o 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="required field">
+                        <label>Q12. Aconselhamento recebido de Médico/Profissional de
+                            Saúde sobre Cessação
+                            Nos últimos 12 meses, durante atendimento feito por um médico ou profissional da
+                            saúde, você foi aconselhado a parar de fumar tabaco?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1</div>
+                                <div class="item" data-value="2">NÃO o 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="required field">
+                        <label>Q13. Percepção de Informação Contra o Cigarro em Jornais/Revistas
+                            Nos últimos 30 dias, você viu informações sobre os riscos de fumar cigarros ou que
+                            estimulem a parar de fumar em jornais ou revistas?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1</div>
+                                <div class="item" data-value="2">NÃO o 2</div>
+                                <div class="item" data-value="7">NÃO APLICÁVEL o 7</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="required field">
+                        <label>Q14. Percepção de Informação Contra o Cigarro na Televisão
+                            Nos últimos 30 dias, você viu informação sobre os perigos de fumar cigarros ou que
+                            estimulem a parar de fumar na televisão?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1</div>
+                                <div class="item" data-value="2">NÃO o 2</div>
+                                <div class="item" data-value="7">NÃO APLICÁVEL o 7</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="required field">
+                        <label>Q15. Percepção de Advertências Sanitárias em Maços de Cigarro
+                            Nos 30 últimos dias, você viu alguma advertência sanitária nos maços de cigarro?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1</div>
+                                <div class="item" data-value="2">NÃO o 2 > FINALIZAR SEÇÃO</div>
+                                <div class="item" data-value="3">NÃO VIU NENHUM MAÇO DE CIGARRO ...........................o 3 > FINALIZAR SEÇÃO</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="required field">
+                        <label>Q16. Pensando em Parar de Fumar por Causa das Advertências Sanitárias nos
+                            Maços de Cigarro
+                            Nos últimos 30 dias, as advertências nos maços de cigarro fizeram você pensar em
+                            parar de fumar?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1</div>
+                                <div class="item" data-value="2">NÃO o 2</div>
+                                <div class="item" data-value="3">NÃO SABE o 7</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="required field">
+                        <label>Q17. Propaganda de Cigarros em Lojas
+                            Nos últimos 30 dias, você notou alguma propaganda ou anúncios promovendo
+                            os cigarros em estabelecimentos comerciais onde cigarros são vendidos?</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1</div>
+                                <div class="item" data-value="2">NÃO o 2</div>
+                                <div class="item" data-value="7">NÃO SE APLICA o 7</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="required field">
+                        <label>Q18. Promoção de Cigarro
+                            Nos últimos 30 dias, você notou algum dos seguintes tipos de promoção de cigarros?
+                            LEIA CADA ITEM: SIM NÃO
+                            NÃO
+                            SABE
+                            ? ? ?
+                        </label>
+                        <label>a. Oferta de amostra grátis de cigarros? ............................. o 1 o 2 o 7</label>
+                        <div class="ui selection dropdown">
+                            <div class="default text">Select</div>
+                            <i class="dropdown icon"></i>
+                            <input type="hidden" name="quest_01">
+                            <div class="menu">
+                                <div class="item" data-value="1">SIM o 1</div>
+                                <div class="item" data-value="2">NÃO o 2</div>
+                                <div class="item" data-value="7">NÃO SABE o 7</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grouped fields">
+                        <label>b. Cigarros a preço de venda? ................................................... o 1 o 2 o 7</label>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>SIM .....................................................................................o 1</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>NÃO ....................................................................................o 2</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>NÃO SABE .................................................................o 7</label>
+                            </div>
+                        </div>
+                        <label>c. Cupons para cigarros? ............................................................. o 1 o 2 o 7</label>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>SIM .....................................................................................o 1</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>NÃO ....................................................................................o 2</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>NÃO SABE .................................................................o 7</label>
+                            </div>
+                        </div>
+                        <label>d. Presentes ou descontos especiais em outros
+                            produtos na compra de cigarros? ......................................
+                            o 1 o 2 o 7</label>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>SIM .....................................................................................o 1</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>NÃO ....................................................................................o 2</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>NÃO SABE .................................................................o 7</label>
+                            </div>
+                        </div>
+                        <label>e. Roupas ou outros : itens com o nome comercial
+                            ou logo de cigarro? ................................................................... o 1 o 2 o 7</label>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>SIM .....................................................................................o 1</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>NÃO ....................................................................................o 2</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>NÃO SABE .................................................................o 7</label>
+                            </div>
+                        </div>
+                        <label>f. Promoção de cigarros pelo correio? ................................. o 1 o 2 o 7</label>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>SIM .....................................................................................o 1</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>NÃO ....................................................................................o 2</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>NÃO SABE .................................................................o 7</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grouped fields">
+                        <label>Q19. Última Compra de Cigarros - Quantidade
+                            Na última vez que você comprou cigarros para uso próprio, quantos cigarros comprou?
+                            ENTREVISTADOR: REGISTRE O NÚMERO E ASSINALE UNIDADE
+                            ooo</label>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>CIGARROS ..................................................o 1</label>
+                                <input type="text" />
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>MAÇOS ..........................................................o 2 > Quantos cigarros havia em cada maço? oo</label>
+                                <input type="text" />
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>PACOTES ......................................................o 3 > Quantos cigarros havia em cada pacote? ooo</label>
+                                <input type="text" />
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>OUTRO - ESPECIFICAR: ...............................o 4 > Quantos cigarros havia em cada [PREENCHER]? ooo</label>
+                                <input type="text" />
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="example2">
+                                <label>NUNCA COMPROU CIGARROS .o 5 > FINALIZAR SEÇÃO</label>
+                                <input type="text" />
+                            </div>
+
+                            <div class="grouped fields">
+                                <label>Q20. Última Compra de Cigarros - Custo
+                                    No total, quanto você pagou por esta compra?
+                                    ENTREVISTADOR: SE NÃO SABE, REGISTRAR 999</label>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <label>ooo [PREENCHER COM MOEDA DO PAÍS]</label>
+                                        <input type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>  
+
+    </div>
+</div
+</div>
+</div>
+
+
+
+<?php echo $this->information() ?>
