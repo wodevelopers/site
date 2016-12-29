@@ -1,0 +1,79 @@
+<div class="ui large text menu">
+    <div class="ui container">
+        <a class="active item" onclick="$('.ui.accordion .content').slideToggle();">
+            <h5 class="ui header">
+                Nome por extensão
+                <div class="sub header">
+                    Descrição da extensão da empresa
+                </div>
+            </h5>
+        </a>
+        <div class="right menu">
+            <div class="item">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+            <a class="ui item">
+                Logout
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="ui very padded attached basic inverted center aligned segment segment-toggle" style="display: none">
+    <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+</div>
+
+<div class="ui attached teal inverted menu">
+    <div class="ui container">
+        <a class="active item">
+            <h5 class="ui inverted header">
+                <img class="ui avatar image" src="http://semantic-ui.com/images/wireframe/square-image.png">
+                <div class="content">
+                    Nome
+                    <div class="sub header">
+                        Empresa por extenso
+                    </div>
+                </div>
+            </h5>
+        </a>
+        <div class="right menu">
+            <a class="ui item" onclick="$('.segment-toggle').slideToggle();">
+                <img class="ui image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAADg0lEQVRIS+1WXWwMcRD/zRH0TlxL1UdCj9K6tuGESlRCvTQNFbtblL5URbw1eCQkvPDYSjyJtLxoKrq7koomJM4LiRZXqTtKaUl8VOmduPUR7i//3V57W+tuexJezNNmdn7zm5mdnRnCPxL6R7z4T/zXKj+hUjNBKIPDUQvGPCAq06NkzA+iMBhTSVHO243cFrFOSNQAIl9Sx4yFARywE8AoMRMEAYCfVJWDwQSBZ7UBwO7R7Oymw6vA2HFSVX8ihAmCj1Q1wHVjxJLE7Pq1bccYJ9ETAcAT8ZAs65xjxKIYANEKW06dTkDTDNPE51RgxrpJUfTPlUh8DkS1lljuvLISuHMHqK8HPB7gxg3DdONG4Plz4PRpYM0aoL19LKjxzhg7T4qye3ypDwBo0G2Ligxne/YYJIEAIIqGbtEi67x6e4H8fKCjAygoAPr7gaYmAx8MxjEHSZYbzcSC4IPDcV/PrK4Og51dyClZrQPud/dg5YripIXsG3iJvNwF6B94CU/uAt32w8MgZhYVAs3NRiVisZW/NBc3ZJIU7ttZ487bXmUiuXU3gNJVPrwdeo852bMsA3j09BmWLVmMzu4elIwEGdcNB0PIOnokQrKcGQeb/uP3gnihqWLLrvL16/Dm3RCUjutwOZ3oG3iBvNyFePtuCNNdTl3Hn7nMmZ2NqKbhU1TTn+O2XFe+vlTHdXXdgyBfbJmlKjWWxGelXYdap7lOpGrOdN5Xf4ke3iu3nLQk7hGrGg9mZO1Px3EqTMPn4VPFShtvYF1MpWai6N88NSunclO51+XMwO27AfCmSUd4o61d5UM0qqH96rXQla/Dg6Qoxny3Ig45Js/1XrpYwF/6b3ciyz0DnzQNRARXRgZCT/rgXZqXUjcc+YiytSU6SWjbjsfe2Pc3yYiN6dXWpgOCvU+/FeYvmZKY8YNQL5Z7801FsNKZsFVVfIvdTJqxvhj4BOKDIhwG9u0DIhENbreTs/149frFpPnzFiYym3Rx2zNngMxMY+jwiZeUWJL4OGs2pcMnz+AgUF1tBMMnU0WF4ZDLeF1rK5CTY0wus9SRLJ+z/MZcyURRBdHWdBrqtxjGLpOi8LU7KpaHAJOkY3yhA3D/YQARAI0ky9yfSZJeICOnThkY46ssc+QC+V0wEcT3L1EAsRg/KkyHQMqM/zBLW3BbN5ctTxM0+k88wYKlb/4TZJpmLl4n/GAAAAAASUVORK5CYII=" width="30" height="30">
+            </a>
+            <a class="ui item">
+                <div class="ui floating labeled icon dropdown yellow button">
+                    <i class="sidebar icon"></i>
+                    <span class="text">Plano de tratamento</span>
+                    <div class="menu">
+                        <div class="header">
+                            Search Issues
+                        </div>
+                        <div class="ui left icon input">
+                            <i class="search icon"></i>
+                            <input type="text" name="search" placeholder="Search...">
+                        </div>
+                        <div class="header">
+                            <i class="tags icon"></i>
+                            Filter by tag
+                        </div>
+                        <div class="item">
+                            <div class="ui red empty circular label"></div>
+                            Important
+                        </div>
+                        <div class="item">
+                            <div class="ui blue empty circular label"></div>
+                            Announcement
+                        </div>
+                        <div class="item">
+                            <div class="ui black empty circular label"></div>
+                            Discussion
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
