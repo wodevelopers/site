@@ -1,0 +1,273 @@
+$(document).ready(function () {
+
+    $('.dropdown-valid1').dropdown({
+        onChange: function (value, text, $selectedItem) {
+            switch (parseInt(value)) {
+                case 0:
+                    $('.dropdown-valid1diver').closest('.field').removeClass('disabled').show();
+                    $('.just1').closest('.field').removeClass('disabled').show();
+                break;
+                default:
+                    $('.dropdown-valid1diver').closest('.field').addClass('disabled').hide();
+                    
+                    $('.just1').closest('.field').addClass('disabled').hide();
+                    break;
+            }
+        }
+    });
+
+    $('.dropdown-valid2').dropdown({
+        onChange: function (value, text, $selectedItem) {
+            switch (parseInt(value)) {
+                case 0:
+                    $('.dropdown-valid2diver').closest('.field').removeClass('disabled').show();
+                    $('.just2').closest('.field').removeClass('disabled').show();
+                    break;
+                default:
+                    $('.dropdown-valid2diver').closest('.field').addClass('disabled').hide();
+                    $('.just2').closest('.field').addClass('disabled').hide();
+                    break;
+            }
+        }
+    });
+
+    $('.ui.modal').modal({
+        closable: false,
+        onApprove: function () {
+            $('.ui.form').submit();
+            return false;
+        }
+    }).modal('attach events', '.button-modal', 'show');
+    
+    $.fn.form.settings.rules.verifyEmpty1 = function (value) {
+        var res = true,
+            $form = $('.ui.form'),
+            valid1 = $form.form('get value', 'valid1');
+    
+        switch (value === '' && parseInt(valid1) === 0) {
+            case true:
+                res = false;
+                break;
+                
+            default:
+                res = true;
+                break;
+        }
+        return res;
+    };
+    
+    $.fn.form.settings.rules.verifyEmpty2 = function (value) {
+        var res = true,
+            $form = $('.ui.form'),
+            valid2 = $form.form('get value', 'valid2');
+    
+        switch (value === '' && parseInt(valid2) === 0) {
+            case true:
+                res = false;
+                break;
+                
+            default:
+                res = true;
+                break;
+        }
+        return res;
+    };
+    
+    $.fn.form.settings.rules.just1 = function (value) {
+        var res = true,
+            $form = $('.ui.form'),
+            valid1 = $form.form('get value', 'valid1');
+    
+        switch (value === '' && parseInt(valid1) === 0) {
+            case true:
+                res = false;
+                break;
+                
+            default:
+                res = true;
+                break;
+        }
+        return res;
+    };
+    
+    $.fn.form.settings.rules.just2 = function (value) {
+        var res = true,
+            $form = $('.ui.form'),
+            valid2 = $form.form('get value', 'valid2');
+    
+        switch (value === '' && parseInt(valid2) === 0) {
+            case true:
+                res = false;
+                break;
+                
+            default:
+                res = true;
+                break;
+        }
+        return res;
+    };
+
+    $('.ui.form').form({
+        on: 'blur',
+        fields: {
+            valid1: {
+                identifier: 'valid1',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Por favor informe o campo 1'
+                    }
+                ]
+            },
+            valid2: {
+                identifier: 'valid2',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Por favor informe o campo 2'
+                    }
+                ]
+            },
+            valid1diver: {
+                identifier: 'valid1diver',
+                rules: [
+                    {
+                        type: 'verifyEmpty1',
+                        prompt: 'Por favor informe o campo valid 1'
+                    }
+                ]
+            },
+            valid2diver: {
+                identifier: 'valid2diver',
+                rules: [
+                    {
+                        type: 'verifyEmpty2',
+                        prompt: 'Por favor informe o campo valid 2'
+                    }
+                ]
+            },
+            just1: {
+                identifier: 'just1',
+                rules: [
+                    {
+                        type: 'just1',
+                        prompt: 'Por favor informe o campo just 1'
+                    }
+                ]
+            },
+            just2: {
+                identifier: 'just2',
+                rules: [
+                    {
+                        type: 'just2',
+                        prompt: 'Por favor informe o campo just 2'
+                    }
+                ]
+            }
+        },
+        onSuccess: function() {
+            alert(1);
+        }
+    });
+
+});
+
+
+
+
+
+<div class="ui button button-modal">modal</div>
+
+
+<div class="ui small modal">
+    <div class="header">
+        Form Valid
+    </div>
+    <div class="content">
+        <!--
+            *
+            * $('.remote .ui.dropdown').dropdown({apiSettings: {url: '//api.semantic-ui.com/tags/{query}'} });
+            * buscar view para encontrar o valores do campo recomendados e uma opção 'outros'
+            *
+        -->
+        
+        <!--
+            *
+            * $('.remote .ui.dropdown').dropdown({apiSettings: {url: '//api.semantic-ui.com/tags/{query}'} });
+            * buscar view para encontrar o valores do campo divergentes e justificar a sua escolha
+            *
+        -->
+        
+        <form class="ui form">
+            <h4 class="ui dividing header">Info valid1</h4>
+            <div class="required field">
+                <div class="ui selection dropdown dropdown-valid1">
+                    <input type="hidden" name="valid1">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Valid 1</div>
+                    <div class="menu">
+                        <div class="item" data-value="1">Sim</div>
+                        <div class="item" data-value="0">Não</div>
+                    </div>
+                </div>
+            </div>
+            <div class="disabled required field" style="display: none;">
+                <label>Valid 1 diver</label>
+                <div class="ui selection dropdown dropdown-valid1diver">
+                    <input type="hidden" name="valid1diver">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Valid 1</div>
+                    <div class="menu">
+                        <div class="item" data-value="1">option1</div>
+                        <div class="item" data-value="0">option2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="disabled required field" style="display: none;">
+                <label>just 1</label>
+                <input type="text" name="just1" class="just1">
+            </div>
+
+            <h4 class="ui dividing header">Info valid2</h4>
+            <div class="required field">
+                <div class="ui selection dropdown dropdown-valid2">
+                    <input type="hidden" name="valid2">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Valid 2</div>
+                    <div class="menu">
+                        <div class="item" data-value="1">Sim</div>
+                        <div class="item" data-value="0">Não</div>
+                    </div>
+                </div>
+            </div>
+            <div class="disabled required field" style="display: none;">
+                <label>Valid 2 diver</label>
+                <div class="ui selection dropdown dropdown-valid2diver">
+                    <input type="hidden" name="valid2diver">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Valid 2</div>
+                    <div class="menu">
+                        <div class="item" data-value="1">option1</div>
+                        <div class="item" data-value="0">option2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="disabled required field" style="display: none;">
+                <label>just 2</label>
+                <input type="text" name="just2" class="just2">
+            </div>
+
+            <div class="ui error message"></div>
+
+        </form>
+    </div>
+    <div class="actions">
+        <div class="ui black deny button">
+            Cancelar
+        </div>
+        <div class="ui positive right labeled icon button">
+            Salvar
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+</div>
