@@ -1,0 +1,207 @@
+-- Table: sft_site.tutorial
+
+-- DROP TABLE sft_site.tutorial;
+
+CREATE TABLE sft_site.tutorial
+(
+  id_tutorial bigserial NOT NULL,
+  order_tutorial smallint,
+  intro text,
+  element character varying(140),
+  "position" character varying(60),
+  id_tutorial_group bigint,
+  CONSTRAINT pk_id_tutorial PRIMARY KEY (id_tutorial),
+  CONSTRAINT fk_id_tutorial_group FOREIGN KEY (id_tutorial_group)
+      REFERENCES sft_site.tutorial_group (id_tutorial_group) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE sft_site.tutorial
+  OWNER TO postgres;
+
+
+
+-- Table: sft_site.tutorial_check
+
+-- DROP TABLE sft_site.tutorial_check;
+
+CREATE TABLE sft_site.tutorial_check
+(
+  id_tutorial_check bigserial NOT NULL,
+  id_users bigint,
+  id_tutorial_group bigint,
+  date_view timestamp without time zone DEFAULT now(),
+  CONSTRAINT pk_id_tutorial_check PRIMARY KEY (id_tutorial_check)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE sft_site.tutorial_check
+  OWNER TO postgres;
+
+
+-- Table: sft_site.tutorial_group
+
+-- DROP TABLE sft_site.tutorial_group;
+
+CREATE TABLE sft_site.tutorial_group
+(
+  id_tutorial_group bigserial NOT NULL,
+  name_group character varying(64),
+  request_uri character varying(140),
+  CONSTRAINT pk_id_tutorial_group PRIMARY KEY (id_tutorial_group)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE sft_site.tutorial_group
+  OWNER TO postgres;
+
+
+
+-- View: sft_site.view_tutorial
+
+-- DROP VIEW sft_site.view_tutorial;
+
+CREATE OR REPLACE VIEW sft_site.view_tutorial AS 
+ SELECT a.order_tutorial,
+    a.intro,
+    a.element,
+    a."position",
+    b.id_tutorial_group,
+    b.request_uri
+   FROM sft_site.tutorial a
+   LEFT JOIN sft_site.tutorial_group b ON a.id_tutorial_group = b.id_tutorial_group;
+
+ALTER TABLE sft_site.view_tutorial
+  OWNER TO postgres;
+
+
+
+
+<?php
+
+class Account_TutorialController extends Zend_Controller_Action {
+
+    public function init() {
+        if (!Zend_Auth::getInstance()->hasIdentity()) {
+            $this->_helper->redirector->gotoRoute(array('module'=> 'account', 'controller'=> 'sign', 'action' =>'in'));
+        }
+    }
+    
+    public function ajaxAction() {
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+        $this->getResponse()->setHeader('Content-Type', 'application/json');
+        
+        Zend_Loader::loadClass("Tutorial");
+        $model = new Tutorial();
+        
+        $array = $model->selectView(Zend_Auth::getInstance()->getIdentity()->id, $this->_request->getParam('pathname'));
+        
+        foreach ($array as $value) {
+            $result[] = array(
+                intro => $value['intro'],
+                element => $value['element'],
+                position => $value['position']
+            );
+        }  
+        
+        echo Zend_Json::encode($result);
+    }
+    
+    public function insertAction() {
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+        $this->getResponse()->setHeader('Content-Type', 'application/json');
+    
+        Zend_Loader::loadClass("Tutorial");
+        $model = new Tutorial();
+        
+        $result = $model->insertSelectTable(Zend_Auth::getInstance()->getIdentity()->id, $this->_request->getParam('pathname'));
+        echo Zend_Json::encode($result);    
+    }
+    
+}
+
+
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+class Tutorial extends Zend_Db_Table {
+
+    protected $_schema = 'sft_site';
+    protected $_name = 'tutorial_check';
+    protected $_primary = 'id_tutorial_check';
+    protected $_rowClass = 'Tutorial';
+    
+    public function selectView($id_users = null, $request_uri = null) {
+        $sql = $this->getAdapter()->select()->from('sft_site.view_tutorial', array('order_tutorial', 'intro', 'element', 'position'));
+        
+        if ($request_uri != null) {
+            $sql->where('request_uri = ?', $request_uri);
+        }  
+        
+        if ($id_users != null) {
+            $sql->where('id_tutorial_group NOT IN (SELECT id_tutorial_group FROM sft_site.tutorial_check WHERE id_users = ?)', $id_users);
+        }
+        
+        $sql->group(array('request_uri', 'order_tutorial', 'intro', 'element', 'position'));
+        
+        $sql->order(array('order_tutorial'));
+        
+        return $this->getAdapter()->fetchAll($sql);   
+    } 
+    
+    
+    public function insertSelectTable($id_users = null, $request_uri = null) {
+        return $this->getAdapter()->fetchAll('INSERT INTO sft_site.tutorial_check (id_tutorial_group, id_users) (SELECT a.id_tutorial_group, ' . $id_users . ' FROM sft_site.tutorial_group a WHERE id_tutorial_group NOT IN (SELECT id_tutorial_group FROM sft_site.tutorial_check WHERE id_users = ' . $id_users . ') AND a.request_uri = \'' . $request_uri . '\')');
+    }
+    
+}
+
+
+
+var access = new Access();
+
+$(document).ready(function () {
+    
+    function insert(pathname) {
+        $.ajax({
+            type: 'POST',
+            url: access.getURL() + 'account/tutorial/insert',
+            data: {pathname: pathname}
+        });
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: access.getURL() + 'account/tutorial/ajax',
+        data: {pathname: window.location.pathname},
+        success: function (e) {
+            var intro = introJs();
+
+            intro.setOptions({
+                steps: e
+            });
+
+            intro.start();
+
+            intro.oncomplete(function () {
+                insert(window.location.pathname);
+            });
+
+            intro.onexit(function () {
+                insert(window.location.pathname);
+            });
+        }
+    });
+
+});
