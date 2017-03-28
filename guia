@@ -1,0 +1,14 @@
+select 
+case when DATE_FORMAT(a.dataclient, '%d') > 15 AND DATE_FORMAT(a.dataclient, '%d') <= 31 then
+	case 
+		when LPAD(DATE_FORMAT(a.dataclient, '%m'), 2, '0') = 12 then
+			CONCAT(LPAD(01, 2, '0'), DATE_FORMAT(a.dataclient, '%Y'))
+		ELSE
+			CONCAT(LPAD(DATE_FORMAT(a.dataclient, '%m') + 1, 2, '0'), DATE_FORMAT(a.dataclient, '%Y'))
+		end
+else 
+	CONCAT(DATE_FORMAT(a.dataclient, '%m'), DATE_FORMAT(a.dataclient, '%Y'))
+end,
+  DATE_FORMAT(a.dataclient, '%Y-%m-%d')
+from cliente a
+group by a.dataclient
