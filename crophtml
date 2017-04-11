@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html lang ="en">
+    <head>
+        <meta charset="UTF-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Croppie - a simple javascript image cropper - Foliotek</title>
+
+        <link rel="Stylesheet" type="text/css" href="demo/prism.css" />
+        <link rel="Stylesheet" type="text/css" href="croppie.css" />
+        <link rel="Stylesheet" type="text/css" href="demo/demo.css" />
+    </head>
+    <body>
+        <section>
+                    <div class="container">
+                        <div class="grid">
+                            <div class="col-1-2">
+                                <div id="vanilla-demo"></div>
+                            </div>
+                            <div class="col-1-2">
+                                <strong>Vanilla Example</strong>
+                                <pre class="language-javascript"><code class="language-javascript">
+var el = document.getElementById('vanilla-demo');
+var vanilla = new Croppie(el, {
+    viewport: { width: 100, height: 100 },
+    boundary: { width: 300, height: 300 },
+    showZoomer: false,
+    enableOrientation: true
+});
+vanilla.bind({
+    url: 'demo/demo-2.jpg',
+    orientation: 4
+});
+//on button click
+vanilla.result('blob').then(function(blob) {
+    // do something with cropped blob
+});</code></pre>
+                                <div class="actions">
+                                    <button class="vanilla-result">Result</button>
+                                    <button class="vanilla-rotate" data-deg="-90">Rotate Left</button>
+                                    <button class="vanilla-rotate" data-deg="90">Rotate Right</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			<div class="demo-wrap upload-demo">
+				<div class="container">
+					<div class="grid">
+						<div class="col-1-2">
+							<strong>Upload Example (with exif orientation compatability)</strong>
+							<div class="actions">
+								<a class="btn file-btn">
+									<span>Upload</span>
+									<input type="file" id="upload" value="Choose a file" accept="image/*" />
+								</a>
+								<button class="upload-result">Result</button>
+							</div>
+						</div>
+						<div class="col-1-2">
+							<div class="upload-msg">
+								Upload a file to start cropping
+							</div>
+							<div class="upload-demo-wrap">
+								<div id="upload-demo"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
+        <script src="demo/prism.js"></script>
+
+        <script src="croppie.js"></script>
+        <script src="demo/demo.js"></script>
+        <script src="http://foliotek.github.io/Croppie/bower_components/exif-js/exif.js"></script>
+        <script>
+            Demo.init();
+        </script>
+    </body>
+</html>
