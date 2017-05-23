@@ -1,0 +1,28 @@
+private function functionConfig() {
+        return array(
+            'auth' => 'login',
+            'username' => 'softcuca@softcuca.com.br',
+            'password' => 'soft@2015'
+            //'ssl' => 'tls',
+            //'port' => 587
+        );
+    }
+
+    public function functionSend($setBodyHtml, $setSubject, $setFromEmail, $setFromName, $addToEmail, $addToName, $attachmentMail) {
+        
+        $_transport = new Zend_Mail_Transport_Smtp('mail.softcuca.com.br', $this->functionConfig());
+        Zend_Mail::setDefaultTransport($_transport);
+        $send = new Zend_Mail('UTF-8');
+        
+        $send->setBodyHtml($setBodyHtml);
+        $send->setFrom('softcuca@softcuca.com.br', 'Suporte SoftCuca');
+        $send->addTo($addToEmail, $addToName);
+        $send->setSubject($setSubject);
+        
+        if ($attachmentMail != '') {
+            $send->addAttachment($attachmentMail);
+        }
+        
+        return $send->send($_transport);   
+        
+    }
