@@ -38,3 +38,22 @@ private function functionConfig() {
     $('.button-back').on('click', function () {
         $.tab('change tab', 'tab-name1');
     });
+
+        
+        <div class="ui grid container">
+            <div class="column">
+                
+                <div class="ui transition horizontal flip in tab active" data-tab="tab-name1">
+                    <div class="ui segment">
+                        tab1 <a class="ui button button-tab">active</a>
+                    </div>
+                </div>
+                <div class="ui transition horizontal flip in tab" data-tab="tab-name">
+                    <div class="ui segment">
+                        tab <a class="ui button button-back">back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
