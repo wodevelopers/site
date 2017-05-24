@@ -26,3 +26,15 @@ private function functionConfig() {
         return $send->send($_transport);   
         
     }
+
+
+
+//$('.tabular.menu .item').tab();
+
+    $('.button-tab').on('click', function () {
+        $.tab('change tab', 'tab-name');
+    });
+
+    $('.button-back').on('click', function () {
+        $.tab('change tab', 'tab-name1');
+    });
