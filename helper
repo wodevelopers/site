@@ -1,0 +1,32 @@
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+class Zend_View_Helper_Teste extends Zend_View_Helper_Abstract {
+    
+    public function teste($menu = null, $order = null) {
+        
+        foreach ($this->item() as $value) {
+            if ($value['menu'] == $menu) {
+                $itens.= '<a class="' . ($value['order'] == $order ? 'active' : '') . ' item" href="' . $value['href'] . '">' . $value['label'] . '</a>';
+            }
+        }
+        
+        return $itens;
+    }
+    
+    protected function item() {
+        $itens = array();
+        
+        array_push($itens, array(href => 'href1', label => 'label1', menu => 1, order => 1));
+        array_push($itens, array(href => 'href2', label => 'label2', menu => 1, order => 2));
+        array_push($itens, array(href => 'href3', label => 'label3', menu => 1, order => 3));
+        
+        return $itens;
+    }
+     
+}
