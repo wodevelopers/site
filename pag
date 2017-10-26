@@ -1,0 +1,204 @@
+-- Table: sft_site.venda
+
+-- DROP TABLE sft_site.venda;
+
+CREATE TABLE sft_site.venda
+(
+  id_venda bigserial NOT NULL,
+  "VendedorEmail" text,
+  "TransacaoID" text,
+  "Referencia" text,
+  "Extras" text,
+  "TipoFrete" text,
+  "ValorFrete" text,
+  "Anotacao" text,
+  "DataTransacao" text,
+  "TipoPagamento" text,
+  "StatusTransacao" text,
+  "CliNome" text,
+  "CliEmail" text,
+  "CliEndereco" text,
+  "CliNumero" text,
+  "CliComplemento" text,
+  "CliBairro" text,
+  "CliCidade" text,
+  "CliEstado" text,
+  "CliCEP" text,
+  "CliTelefone" text,
+  "ProdID_x" text,
+  "ProdDescricao_x" text,
+  "ProdValor_x" text,
+  "ProdQuantidade_x" text,
+  "ProdFrete_x" text,
+  "NumItens" text
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE sft_site.venda
+  OWNER TO cuca_site_teste;
+
+
+
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+class Pagamento extends Zend_Db_Table {
+
+    protected $_name = 'sft_site.venda';
+    protected $_primary = 'id_venda';
+    protected $_rowClass = 'Pagamento';
+
+    public function selectTable() {
+        $sql = $this->select();
+
+        return $this->fetchAll($sql)->toArray();
+    }
+
+    public function insertTable($data) {
+        return $this->insert($data);
+    }
+
+}
+
+
+
+
+<?php
+
+class PagamentoController extends Zend_Controller_Action {
+
+    public function init() {}
+
+    protected function postgresqlAction() {
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+        $this->getResponse()->setHeader("Content-Type", "application/json");
+   
+        
+        Zend_Loader::loadClass("Teste");
+        $model = new Teste();
+        
+        echo json_encode($model->selectTable(), JSON_PRETTY_PRINT); 
+    }
+
+    protected function selectAction() {
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+        $this->getResponse()->setHeader("Content-Type", "application/json");
+        
+        Zend_Loader::loadClass("Pagamento");
+        $model = new Pagamento();
+        
+        echo json_encode($model->selectTable(), JSON_PRETTY_PRINT); 
+    }
+
+    protected function recebimentoAction() {
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+        $this->getResponse()->setHeader("Content-Type", "application/json");
+        
+        Zend_Loader::loadClass("Pagamento");
+        $model = new Pagamento();
+        
+        $data = array ("TransacaoID" => $this->_request->getParam("TransacaoID"));
+        
+        echo $model->insertTable($data);
+    }
+
+    protected function notificacaoAction() {
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+        $this->getResponse()->setHeader("Content-Type", "application/json");
+        
+        Zend_Loader::loadClass("Pagamento");
+        $model = new Pagamento();
+        
+        $data = array (
+            "VendedorEmail" => $this->_request->getParam("VendedorEmail"),
+            "TransacaoID" => $this->_request->getParam("TransacaoID"),
+            "Referencia" => $this->_request->getParam("Referencia"),
+            "Extras" => $this->_request->getParam("Extras"),
+            "TipoFrete" => $this->_request->getParam("TipoFrete"),
+            "ValorFrete" => $this->_request->getParam("ValorFrete"),
+            "Anotacao" => $this->_request->getParam("Anotacao"),
+            "DataTransacao" => $this->_request->getParam("DataTransacao"),
+            "TipoPagamento" => $this->_request->getParam("TipoPagamento"),
+            "StatusTransacao" => $this->_request->getParam("StatusTransacao"),
+            "CliNome" => $this->_request->getParam("CliNome"),
+            "CliEmail" => $this->_request->getParam("CliEmail"),
+            "CliEndereco" => $this->_request->getParam("CliEndereco"),
+            "CliNumero" => $this->_request->getParam("CliNumero"),
+            "CliComplemento" => $this->_request->getParam("CliComplemento"),
+            "CliBairro" => $this->_request->getParam("CliBairro"),
+            "CliCidade" => $this->_request->getParam("CliCidade"),
+            "CliEstado" => $this->_request->getParam("CliEstado"),
+            "CliCEP" => $this->_request->getParam("CliCEP"),
+            "CliTelefone" => $this->_request->getParam("CliTelefone"),
+            "ProdID_x" => $this->_request->getParam("ProdID_x"),
+            "ProdDescricao_x" => $this->_request->getParam("ProdDescricao_x"),
+            "ProdValor_x" => $this->_request->getParam("ProdValor_x"),
+            "ProdQuantidade_x" => $this->_request->getParam("ProdQuantidade_x"),
+            "ProdFrete_x" => $this->_request->getParam("ProdFrete_x"),
+            "NumItens" => $this->_request->getParam("NumItens")
+        );
+        
+        echo $model->insertTable($data);
+        
+    }
+
+    
+    public function pagseguroAction() {
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+//        $this->getResponse()->setHeader("Content-Type", "application/json");
+        
+        $url = "https://ws.pagseguro.uol.com.br/v2/checkout";
+        
+        $array = array(
+            "email" => "acscrz@gmail.com", 
+            "token" => "A3629D70E46E44AEA1FECA6D535CA741", 
+            "currency" => "BRL", 
+            "itemId1" => "0001",
+            "itemDescription1" => "0001",
+            "itemAmount1" => "1.00",
+            "itemQuantity1" => "1",
+            "itemWeight1" => "1000",
+            "reference" => "99999",
+            "senderName" => "Alberto Cruz",
+            "senderAreaCode" => "14",
+            "senderPhone" => "997845322",
+            "senderEmail" => "acscrz@outlook.com",
+            "shippingType" => "1",
+            "shippingAddressStreet" => "Rua Coroados",
+            "shippingAddressNumber" => "506",
+            "shippingAddressComplement" => "",
+            "shippingAddressDistrict" => "Alto Cafezal",
+            "shippingAddressPostalCode" => "17504060",
+            "shippingAddressCity" => "Marília",
+            "shippingAddressState" => "SP",
+            "shippingAddressCountry" => "ATA",
+        );
+       
+        $options = array(
+            "http" => array(
+                "header"  => "Content-type: application/x-www-form-urlencoded\r\n",
+                "method"  => "POST",
+                "content" => http_build_query($array),
+            ),
+        );
+        
+        $context  = stream_context_create($options);
+        $json = file_get_contents($url, false, $context);  
+        
+        $xml = simplexml_load_string($json);
+        echo $xml->code;
+        header("Location: https://pagseguro.uol.com.br/v2/checkout/payment.html?code=" . $xml->code);
+    }
+    
+}
