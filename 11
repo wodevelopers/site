@@ -1,0 +1,284 @@
+<?php echo $this->doctype('XHTML5') ?>
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="pt-BR">
+    <head>          
+        <?php
+        echo $this->headTitle('SoftCuca - ' . $this->title);
+
+        echo $this->headMeta()
+                ->appendName('viewport', 'width=device-width, initial-scale=1')
+                ->setHttpEquiv('Content-Type', 'text/html;charset=UTF-8')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+                ->appendHttpEquiv('language', 'pt-BR')
+                ->appendHttpEquiv('Author', 'Departamento Web')
+                ->appendHttpEquiv('reply-to', 'programacao@softcuca.com.br')
+                ->appendHttpEquiv('expires', '-1')
+                ->appendHttpEquiv('pragma', 'no-cache')
+                ->appendHttpEquiv('Cache-Control', 'no-cache')
+                ->appendName('robots', 'noindex, nofollow')
+                ->appendName('DC.title', 'SoftCuca')
+                ->appendName('description', 'description');
+
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/x-icon', 'href' => $this->baseUrl('public/modules/default/img/favicon/favicon.ico')), 'PREPEND')
+                ->appendStylesheet($this->baseUrl('public/library/nprogress/nprogress.css'))
+                #datatables
+//                ->appendStylesheet($this->baseUrl('public/modules/default/css/datatables/library.datatables.css'))
+                ->appendStylesheet($this->baseUrl('public/modules/default/css/datatables/library.datatables.semantic.css'))
+                ->appendStylesheet($this->baseUrl('public/modules/default/css/datatables/semantic/library.dataTables.css'))
+                ->appendStylesheet($this->baseUrl('public/modules/default/css/datatables/library.datatables.select.css'))
+                #semantic
+                ->appendStylesheet($this->baseUrl('public/framework/semantic.css'))
+                #uikit
+                ->appendStylesheet($this->baseUrl('public/jquery/jquery-ui.css'))
+                ->appendStylesheet($this->baseUrl('public/library/contextmenu/contextmenu.css'))
+//                ->appendStylesheet($this->baseUrl('public/modules/default/css/uikit.css'))
+//                ->appendStylesheet($this->baseUrl('public/library/sidebar/css/reset.css'))
+//                ->appendStylesheet($this->baseUrl('public/library/sidebar/css/style.css'))
+                #Intro
+                ->appendStylesheet($this->baseUrl('public/library/introjs/css/introjs.css'))
+//                ->appendStylesheet($this->baseUrl('public/modules/cloud/css/style.default.css'))
+                ->appendStylesheet($this->baseUrl('public/modules/default/css/style.fullscreen.css'))
+                ->appendStylesheet($this->baseUrl('public/library/sidebar/css/style.css'))
+                #default
+                ->appendStylesheet($this->baseUrl('public/modules/default/css/library.default.css'));
+        ?>       
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    </head>
+    <body>   
+        <?php include 'public/pageteste/pageteste.php' ?>
+
+        <div id="contextWrap">
+            <!--sidebar-->
+            <div class="ui sidebar vertical left menu overlay borderless visible sidemenu inverted">
+                <div class="logo">
+                    <img style="margin: 16px 16px;" width="218" height="40" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANoAAAAoCAYAAACYR+TJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NzEzRTFGRjJDMkVEMTFFNzkxRkZDRTI5MDFGQTk0OTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NzEzRTFGRjNDMkVEMTFFNzkxRkZDRTI5MDFGQTk0OTUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3MTNFMUZGMEMyRUQxMUU3OTFGRkNFMjkwMUZBOTQ5NSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3MTNFMUZGMUMyRUQxMUU3OTFGRkNFMjkwMUZBOTQ5NSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PjYzk/MAAAyVSURBVHja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" />
+                    <img style="margin: 18px 12px;" width="36" height="36" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODUzODEyN0ZDMkVEMTFFNzg5OEJBMDcxNTlDMjVBOTAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODUzODEyODBDMkVEMTFFNzg5OEJBMDcxNTlDMjVBOTAiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4NTM4MTI3REMyRUQxMUU3ODk4QkEwNzE1OUMyNUE5MCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4NTM4MTI3RUMyRUQxMUU3ODk4QkEwNzE1OUMyNUE5MCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PnVSK0YAAAV1SURBVHjavFhbbFRFGP5mzjl76166XdkF7AUKaJWgCCS+oQ9CglpRQnjTRGMICYmJLz4YE+FNQ8KrihgN0cRLMMGQCpQWQ5FbWFpu20KhN8qybbfd7rZ7dvfs7hnnnIVqb3J2e7Z/5ml3Zs43//z/93//EMYYTLSkjNazOPITbl5FWgYsIKKhhaqKXA7vv0tMBsQ3fRBG6DZaW/HzUQx267/adFgGPvTBeyLMNVFEXa02NryEutU4+huuBRGLggkgNiMbmO2hGXY9hK8OoekYwoPIcUwC/+L/zd/zYZkBZbOIJ3D8JL44gNsd3IEg9kLIzAdIRFlNkvCUD+80wu3CN4dw6jhYErCD0PkwlRlQwTwu7GiEyw1FxdkWqBxTxbxBiEWzLa/A68ZeGe1/I5sBsc45i2Ix7fkGfPoJ1r7I6WE+ElhcQA47tryKnbvgfxpIgamzk25xARUw7dqJ19/Ugzo/my0pypr2c9qaldjxNrw1IAQsO8NJFMkkFt/W1KNxG5wSZ6oZ/wj7xjM4fxl5FT4fbNZFAuSsgM2GE2eQHNfZ8rGTNm0Q9iVGcaIF/T3oH8B4AnkGj1srSWU1vr/Xi+ZzCPdroa2VlClA3gCG76OvB+fOorkNkSFVElW3i3LUogRKyoVJENDbh64uyPF/OUkD5FuKsUmdIQUoSfVep3K6NXuxnaZStLYGLme5AKlME08dQUQeglimAOlXQ/TkZwRqjsiyJMtCSxS9nUrzaby2VXxjK1m1wnxHCRTr18G/HAhqmU6mlQ4987XIshBYBeQFVVbvdvPBrgSzNzvymzeLGzdIDc8QE3FRiurlCFTraZ+bKmL8ygIYi/1nItNmECshFk2/TI7mrl7JNLfl4uOsyks9HiKKhJpBp/xwPIwuBXHhIpiiS0rCr2y+rZk2iEjgsMLmTsbwy4/R3buHvjyY6b9v5sX5l6CySmNtxgoM+aSzEp5tAmXEkUx6ukLqD4f79uwNH/5emZg0B9ASnzamwsaA/CiEl0ViVgkKiYQzkfDI/T45OhzYvt31XMNCAXkr4fOWUFz59XH6klzEtQrWitudQ/v39x44OBHqVBVlQYAqHHA6S672TLtsIqyAvSadjv3+642PPk5cu74gQFYrrLYFyg8e6sJSWOri8dRfLV2ffT7Sdn5BNWR6mSqtZjELsdQyms+nuk819VdVOfz+imdXl5b9mE4iJTOKSgldRZxc+SWamga+/lbNZEqRVnyJqpqoGNlq2N0T4w/PnExcDpYS4Lz1zmbNlLB2Hk9MtXffffjdkUx0rOj1ExNIJEzW1EsgLZPl2B/H5FBohv+fbNEohkbMBcSsxMq5VopF0pcu5sbGi1s9PKKNQnSb2HVIECq5PA5eS9/rLRJQFPGYBkMTEsxEQLSKl71QV+5BuLiniMgQ1LS2gbkeoqBuUHFwUI1EDPOGCp4Eo8O6Y0STG0UuoLiTRDlOxgwnWj6PngHERx5rQzMBFaQMlaCKqUwRHrrTjdGxMr5+cKUuUqEIjr7ViUi0TIA4/aiS4KC8pzNocho3Oh+lmNmPDYWMVanHR3w+o+4ZDGt9WT6jpxgz3UM6oICfVHoMTZ9M4tYtTEYKcqYczzFaU0BW1hIu2o0Yj+ULl5GcmI2BmhdDIC+sRV2Noen8vlrakFK0dnn6E5FoFhoIbqxbh+UBA5Ijj647CN3UF1pmAKImRDTTD1pdi/p6GOkhBx6go52nmU6owizSV7ILxpSH04aXNyHgNzT9Ujv+bHlMp9NNUcSiFcycPa4/gLe2zeiw5s52Xt5Pn0JPSM92OnuCiBW1j4StIJSEh58njfoGbFyvvYs9sX7d60NsCNXLAMc0B3EAvPgH/P8IMABC7xWEVT/RLgAAAABJRU5ErkJggg==" class="displaynone" />
+                </div>
+                <div class="header item">
+                    <span>GERAL</span>
+                </div>
+                <?php echo $this->sidebarleft($this->menu) ?>
+            </div>
+            <div class="pusher">
+                <!--navbar-->
+                <div class="navslide navwrap">
+                    <div class="ui secondary attached inverted menu">
+                        <a class="item labeled openbtn">
+                            <i class="material-icons">menu</i>
+                        </a>
+                        <a class="item labeled expandit" onclick="toggleFullScreen(document.body, this)">
+                            <i class="material-icons">fullscreen</i>
+                        </a>
+                        <div class="right menu colhidden">
+                            <?php if (substr(Zend_Auth::getInstance()->getIdentity()->demonstrative, 0, 1) == '5') : ?>
+                                <div class="item">
+                                    <h6 class="ui inverted right aligned header">
+                                        Demonstração
+                                        <div class="sub header"><?php echo (Zend_Auth::getInstance()->getIdentity()->dias_restantes < 0 ? 'Seus dias de demonstração acabaram, contrate agora!' : 'Você tem ' . Zend_Auth::getInstance()->getIdentity()->dias_restantes . ' dia(s) de restante(s)') ?></div>
+                                    </h6>
+                                </div>
+                                <div class="item">
+                                    <a class="ui green icon button" href="<?php echo $this->baseUrl('account/payment') ?>"><i class="shop icon"></i></a>
+                                </div>
+                            <?php endif; ?>
+                            <a class="menu-application item" title="Menu principal">
+                                <i class="material-icons">apps</i>
+                            </a>
+                            <a class="menu-alarm item" title="Notificações">
+                                <!--<i class="material-icons">notifications</i>-->
+                                <i class="large icons">
+                                    <i class="inverted alarm icon"></i>
+                                    <i class="mini grey corner circle icon"></i>
+                                </i>
+                            </a>
+                            <a class="menu-network item transition hidden" title="Alternar contas">
+                                <img class="ui image" width="24" height="24" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MzAwQzA1MUIzQTc0MTFFN0IzQjhEQjZDQ0ZCODIyQTIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MzAwQzA1MUMzQTc0MTFFN0IzQjhEQjZDQ0ZCODIyQTIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozMDBDMDUxOTNBNzQxMUU3QjNCOERCNkNDRkI4MjJBMiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDozMDBDMDUxQTNBNzQxMUU3QjNCOERCNkNDRkI4MjJBMiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PlbZpx4AAAGkSURBVHja7FftbYQwDAXEAHQDRugGpBt0g3aDMkI36HUCGKEbABMcnaDdADbgHMlIvsQOh0t0f/qkpzuUxM8BfyTpsiyJEgb4AhyBn1ojuXJdCezIcwo8aQxlG+MFsAK+MQ6EnhNcU6ENGfYTMCyBzXINOl4ARzJmGBsUDdr0tDhxa2xyDPTMvALnlsImesfGxDnK7XwVH4WdWb4CO5z3A/xAh6QNjcSJMuRAS8Qlg+8Lj7Mw3/1kLR1LSRraYJnw/xOwF8LGRvtjIDVDabtmzgNwdoPQCAF3JL2gpWm47mpI4mFwtK4+wV2QJXdG5gRJw1S9I+FrkPynqCMEIKuR7ajtfwWrsTpgW+o3GfyK4ACr4RYimx6/yBjwNRS1XUtWQ1vb91LUyPG1DJHTXdT4r4TUgdrGZKANH4EeNWrOgRF/q4gOVI4W68DWwULbO55ZLeFIdt6oA3t7R4E2vSMZZ3gmTpjAQZPiFBA3RHzeOpSuC2ZHoFPcCzrHxnzLsZy+iTZwMbnlXkDR7rmYcCK14l5Q49pgTzm0rmv6RH5kXdfgIsAAM2vqkwak59oAAAAASUVORK5CYII=" />
+                            </a>
+                            <a class="menu-account item" title="Usuário logado">
+                                <h6 class="ui inverted left aligned header">
+                                    <img class="ui circular image" id="db-img-profile" src="<?php echo (Zend_Auth::getInstance()->getIdentity()->imagem ? Zend_Auth::getInstance()->getIdentity()->imagem : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAADK0lEQVRYR62Y/VUVQQzFbyoAKhAqACpQKgAqUCpQKwArUCpAKkAqECvwUYFQgVBBPL8xi8u++TyYc94f7+xM9k5yc5NZ04C5+6ak15KOJG1L4v9euFhJepB0J+mbpB9mxv8us55V7s7LTgMAW24l3cSLp5cBit8bSbvhF0CfzAyQVasCcXdODYB3nFDSVwCYGacuWuwD0IcAxT4AFfcVgbg74b+Q9CjpzMxwNmzuziHOJG1IOjYzIrlmWSDu/l7SF0mXnGok17mXBLfw9zb8nS/XrQFxd8L5WdJHM2PzmgVncAp3+MENTnpuZvAiazXfz4BEOq4aIAg1KSsZKbwspWAG5mC+5glIEOynpGsz42W5SEDA751EgQ/Z6Lg7YA8l7U8EngPhIS/aK3HC3XGMgx67M7OdCmcoaSowHToBiZwTjZNadbj77+BDDxDWbFUONaWYqKwmIJx008yISNHc3XsRxLpnPFjudXeiQuSOLEqLk1ajEZEbBbJTE7HQmAvDZpVS3RRAkHOEqcvw34gwyv0rCV0wGIJOzauWGrSCptdjt50+Sc8KIDhfmRlCVjV3R+BQ3R5DS7IyMN8cgdgGyKQd9IMWkBGOPJjZVodP3nsIEJwX5XyBfoQjj2aG9LcOB5DTUSBpU8t5PKft90T5CQhk+dazKSqnh7C0CcaIprk7QJKO4BhRaRIrgLSaHsuamjQhnJOVHrNrZvtN+H/bAXkniq8K6+9r/Wq5J4rldkjQZqcg7IwLOSt23QyIZ4LGCZH4rsqJ9NTGgWp/WVRhGsKSxIdjmt6GmR10pud/AUHD7lPTCyDIe3MMmKWmVsaMiz0qvT4GBBhISx9hPihejNwdHWnpA88BlPUThOfgXML+DUYBBOJQDVdmdrLIJc/SBD4wGAEi3QSWo4C7M/MeR3Wlu05peE6q6O5wgSbXJU4VfsFBInQza5z54XmW/+k6weaXAlhim3yuVWjpgjWB6Smi0TVZmWhdOSFw90TWQMTV9WjoyjlLEySlAiDqS4yrK/fn8Uv4omrQmTTADKK5DgAv+yyR6Q3T94/5h5rpWwjfTJ4+1NTuwLnD/AGgFawRwW/1xgAAAABJRU5ErkJggg=='); ?>" />
+                                    <div class="content">
+                                        <span class="db-f-l"><?php echo Zend_Auth::getInstance()->getIdentity()->nome ?> <?php echo Zend_Auth::getInstance()->getIdentity()->sobrenome ?></span>
+                                        <div class="sub header"><?php echo Zend_Auth::getInstance()->getIdentity()->codigo ?> - <?php echo Zend_Auth::getInstance()->getIdentity()->chave ?></div>
+                                    </div>
+                                </h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui popup-account inverted popup transition hidden" style="width: 350px;">
+                    <div class="ui inverted secondary fluid vertical menu">
+                        <?php echo $this->menu(null, true, 'left center') ?>
+                        <a class="item" href="<?php echo $this->url(array("module" => "account", "controller" => "sign", "action" => "out"), null, true) ?>"><img class="ui middle aligned right spaced image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACB0lEQVQ4T2NkwAKOOzgocHNyurJxcOiApH/9+HHl6/fvuy0PHHiArpwRWeC8g4MAGz//CkEBARs+bm5uZmZmsPTfv38ZPn39+vXj+/eHf3z6FGl44MAHmD64ARe8vHz4eHj6JcXFVeCSQkJg5v937+D2PH/58s73jx+TtHfuPAwSBBsAsplPXPyMlJiYMrKLWDw9wdw/27ejuBxkyMdXr0xBLgEbcNXff4eSnJw72ERpaYiN378zoBjAyQkx5Pt3MHXv0aOd2hs3ejCCAkxeXv6qIB8fF0iCLS+P4d/t22BbkQ1gDQoCG/5r8mSwAe8/ffr68OFDHcYL3t5pKvLyM0EBxmxuDtb0s7MTqwvYy8sZfi9ZwvDvzh1wwN55+DCd8XpAwCQFWdlckKnofibEv3n//lS8BqDHObqBYAOQvcCkq8vAGhwM9wKKAZycDBwNDQy/QF64fBnhBWyByPDtG8OvpUvhIc7AycnAlpLCwMDIyPBr0iRYIH57+PChNkY0ghWnpjIwCgkx/D1xAqyY2cICHLW/Zs/GjEZcCQnkHSYZGbAB/548ATsbBp69enX308uXJvCEBE5M7u62HAIC89FTI3pAgjT/+PAhESUpwxTBMpMwP78NDw8PSmb68uXL17cfPx759fFjBNbMhGwTKGA5ubndWJiYlMB54d+/e9+/ft2FLTsDADR1DX7rUAB/AAAAAElFTkSuQmCC" width="16" height="16" /> <span>Sair</span></a>
+                    </div>
+                </div>
+
+                <div class="ui popup-application flowing inverted popup bottom center transition hidden">
+                    <div class="ui two column grid" id="list-sibar-account"></div>
+                </div>
+
+                <div class="ui popup-alarm flowing inverted popup transition hidden">
+                    <div class="ui column grid">
+                        <div class="column">
+                            <h3 class="ui inverted header">
+                                <i class="alarm icon"></i>
+                                <div class="content">
+                                    Histórico
+                                    <div class="sub header">Notificações não lidas</div>
+                                </div>
+                            </h3>
+                            <div class="ui divider"></div>
+                            <table class="ui small selectable inverted table" id="table-notify" cellspacing="0" width="100%">
+                                <thead style="display:none;">
+                                    <tr> 
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="ui divider"></div>
+                            <a class="ui blue button" href="<?php echo $this->baseUrl('account/notify?s=true') ?>">Não lidas</a>
+                            <a class="ui inverted right floated button" href="<?php echo $this->url(array("module" => "account", "controller" => "notify", "action" => "index"), null, true) ?>">Mais notificações</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui popup-network flowing inverted popup transition hidden">
+                    <div class="ui column grid">
+                        <div class="column">
+                            <h6 class="ui center aligned inverted header">
+                                OUTRAS CONTAS
+                            </h6>
+                            <table class="ui small selectable inverted table table-sidebar-network" cellspacing="0" width="100%">
+                                <thead style="display:none;">
+                                    <tr> 
+                                        <th>ID</th>
+                                        <th>ID Usuário</th>
+                                        <th>Usuários vinculados</th>
+                                        <th>ID Cliente</th>
+                                        <th>Cliente</th>
+                                        <th>Imagem</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <?php $s = new Zend_Session_Namespace('network_user'); ?>
+
+                            <div class="ui divider"></div>
+                            <a <?php echo ($s->id_user_manager == Zend_Auth::getInstance()->getIdentity()->id ? 'class="ui blue small fluid button" href="' . $this->baseUrl('account/network') . '"' : 'class="ui small fluid button" data-inverted="" data-tooltip="Opção disponível apenas para usuário da conta principal" data-position="bottom center"' ) ?>>Gerenciar contas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--navbar-->
+                <!--maincontent-->
+                <div class="mainWrap navslide">
+
+                    <main class="cd-main-content">
+
+                        <div class="content-wrapper">
+                            <div class="ui equal width grid">
+                                <div class="column">
+                                    
+                                    <div class="ui segment">
+                                        <?php echo $this->breadcrumb($this->title) ?>
+                                    </div>
+                                    
+                                    <?php echo $this->layout()->content; ?>
+                                    <footer>
+                                        <div class="ui equal width grid container">
+                                            <div class="center aligned column">
+                                                <small>
+                                                    <?php if (Zend_Auth::getInstance()->getIdentity()->id_cliente != 0) : ?>
+                                                        <a href="<?php echo $this->baseUrl('/') ?>">Voltar para a página inicial</a><br />
+                                                    <?php endif ?>
+                                                    Copyright © <?php echo date('Y') ?> SoftCuca Informática Ltda <br /> Todos os direitos reservados
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </footer>
+
+                                </div>
+                            </div>
+                        </div> <!-- .content-wrapper -->
+                    </main> <!-- .cd-main-content -->
+
+                </div>
+                <!--maincontent-->
+            </div>
+        </div>
+        <?php
+        echo $this->headScript()
+                ->prependFile($this->baseUrl('public/library/sidebar/js/script.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/library.fullscreen.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/library.default.js'))
+                ->prependFile($this->baseUrl('public/library/introjs/js/introjs.js'))
+                ->prependFile($this->baseUrl('public/modules/account/js/library.tutorial.js'))
+                ->prependFile($this->baseUrl('public/js/global/access.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/mask/library.mask.phone.min.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/mask/library.money.min.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/valid/library.valid.document.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/url/library.purl.js'))
+                ->prependFile($this->baseUrl('public/library/contextmenu/contextmenu.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/datatables/sorting/library.dataTables.currency.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/datatables/sorting/library.dataTables.date.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/datatables/library.datatables.select.min.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/datatables/semantic/library.dataTables.min.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/datatables/library.datatables.semantic.complement.min.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/datatables/library.datatables.semantic.min.js'))
+                ->prependFile($this->baseUrl('public/modules/default/js/datatables/library.datatables.min.js'))
+                ->prependFile($this->baseUrl('public/library/nprogress/nprogress.js'))
+                ->prependFile($this->baseUrl('public/jquery/i18n/datepicker-pt_br.js'))
+                ->prependFile($this->baseUrl('public/jquery/jquery-ui.js'))
+                ->prependFile($this->baseUrl('public/framework/components/semantic.notify.js'))
+                ->prependFile($this->baseUrl('public/framework/components/semantic.alert.js'))
+                ->prependFile($this->baseUrl('public/config/default.js'))
+                ->prependFile($this->baseUrl('public/framework/semantic.min.js'))
+                ->prependFile($this->baseUrl('public/jquery/external/jquery/jquery.js'))
+                #last files 
+                ->appendFile($this->baseUrl('public/modules/default/js/datatables/library.clear.js'));
+        ?>
+        
+        <!-- Google Analytics -->
+        <script type="text/javascript">
+                        (function (i, s, o, g, r, a, m) {
+                            i['GoogleAnalyticsObject'] = r;
+                            i[r] = i[r] || function () {
+                                (i[r].q = i[r].q || []).push(arguments)
+                            }, i[r].l = 1 * new Date();
+                            a = s.createElement(o),
+                                    m = s.getElementsByTagName(o)[0];
+                            a.async = 1;
+                            a.src = g;
+                            m.parentNode.insertBefore(a, m)
+                        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+                        ga('create', 'UA-63615034-1', 'auto');
+                        ga('send', 'pageview');
+        </script>
+
+        <!-- Google Adwords -->
+        <script type="text/javascript">
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-88259658-1', 'auto');
+            ga('send', 'pageview');
+        </script>        
+    </body>
+</html>
