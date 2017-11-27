@@ -1,0 +1,20 @@
+
+CREATE OR REPLACE FUNCTION public.function_trigger_sequence_budget()
+  RETURNS trigger AS
+$BODY$
+BEGIN
+	SELECT COALESCE(max(number_budget) + 1, 1) INTO NEW.number_budget FROM public.wo_budget where date_part('year', date_budget) = date_part('year', CURRENT_DATE);
+
+        RETURN NEW;
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+
+
+
+CREATE TRIGGER trigger_sequence_budget
+  AFTER INSERT
+  ON public.wo_budget
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.function_trigger_sequence_budget();
