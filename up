@@ -1,0 +1,6 @@
+FOR EACH ROW
+BEGIN
+	IF (SELECT COUNT(id_contact) FROM on_contact WHERE contact_email = NEW.message_email) = 0 THEN
+		INSERT INTO on_contact (contact_name, contact_email, contact_phone) VALUES (NEW.message_name, NEW.message_email, NEW.message_phone);
+	END IF;
+END;
